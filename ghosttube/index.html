@@ -1,0 +1,722 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GhostTube Collector</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #0a0a0f;
+            color: #e4e4e7;
+            min-height: 100vh;
+            padding: 2rem 1rem;
+            position: relative;
+            overflow-x: hidden;
+        }
+        
+        body::before {
+            content: '';
+            position: fixed;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle at 20% 50%, rgba(139, 92, 246, 0.15) 0%, transparent 50%),
+                        radial-gradient(circle at 80% 80%, rgba(236, 72, 153, 0.15) 0%, transparent 50%),
+                        radial-gradient(circle at 40% 20%, rgba(59, 130, 246, 0.1) 0%, transparent 50%);
+            animation: gradientShift 20s ease infinite;
+            pointer-events: none;
+        }
+        
+        @keyframes gradientShift {
+            0%, 100% { transform: translate(0, 0) rotate(0deg); }
+            33% { transform: translate(5%, -5%) rotate(120deg); }
+            66% { transform: translate(-5%, 5%) rotate(240deg); }
+        }
+        
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .header {
+            text-align: center;
+            margin-bottom: 3rem;
+            padding: 2rem;
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 24px;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            backdrop-filter: blur(20px);
+        }
+        
+        .header h1 {
+            font-size: 3rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, #8b5cf6 0%, #ec4899 50%, #3b82f6 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 0.5rem;
+            letter-spacing: -0.02em;
+        }
+        
+        .header p {
+            color: #a1a1aa;
+            font-size: 1.1rem;
+            font-weight: 500;
+        }
+        
+        .status-card {
+            background: linear-gradient(135deg, rgba(139, 92, 246, 0.1) 0%, rgba(236, 72, 153, 0.1) 100%);
+            border: 1px solid rgba(139, 92, 246, 0.3);
+            border-radius: 20px;
+            padding: 1.5rem;
+            margin-bottom: 2rem;
+            display: grid;
+            grid-template-columns: 1fr auto;
+            gap: 1.5rem;
+            align-items: center;
+        }
+        
+        .status-info {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+        
+        .status-row {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            font-size: 0.95rem;
+        }
+        
+        .status-label {
+            color: #a1a1aa;
+            font-weight: 500;
+        }
+        
+        .status-value {
+            color: #e4e4e7;
+            font-weight: 600;
+            font-family: 'Courier New', monospace;
+        }
+        
+        .status-indicator {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            animation: pulse 2s ease-in-out infinite;
+        }
+        
+        .status-connected {
+            background: #10b981;
+            box-shadow: 0 0 10px rgba(16, 185, 129, 0.5);
+        }
+        
+        .status-disconnected {
+            background: #ef4444;
+            box-shadow: 0 0 10px rgba(239, 68, 68, 0.5);
+        }
+        
+        @keyframes pulse {
+            0%, 100% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0.5; transform: scale(1.2); }
+        }
+        
+        .card {
+            background: rgba(24, 24, 27, 0.8);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            padding: 2rem;
+            margin-bottom: 1.5rem;
+            backdrop-filter: blur(10px);
+        }
+        
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+        
+        label {
+            display: block;
+            font-weight: 600;
+            margin-bottom: 0.75rem;
+            color: #e4e4e7;
+            font-size: 0.95rem;
+            letter-spacing: 0.01em;
+        }
+        
+        input, select {
+            width: 100%;
+            padding: 0.875rem 1rem;
+            border-radius: 12px;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            color: #e4e4e7;
+            font-size: 1rem;
+            font-family: 'Inter', sans-serif;
+            transition: all 0.3s ease;
+        }
+        
+        input:focus, select:focus {
+            outline: none;
+            border-color: #8b5cf6;
+            background: rgba(255, 255, 255, 0.08);
+            box-shadow: 0 0 0 3px rgba(139, 92, 246, 0.1);
+        }
+        
+        input::placeholder {
+            color: #71717a;
+        }
+        
+        .toggle-group {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+        
+        .toggle {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.75rem 1.25rem;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            user-select: none;
+        }
+        
+        .toggle:hover {
+            background: rgba(255, 255, 255, 0.08);
+            border-color: rgba(139, 92, 246, 0.5);
+        }
+        
+        .toggle input[type="checkbox"] {
+            width: auto;
+            margin: 0;
+            cursor: pointer;
+        }
+        
+        .toggle label {
+            margin: 0;
+            cursor: pointer;
+            font-weight: 500;
+            font-size: 0.9rem;
+        }
+        
+        .btn {
+            padding: 0.875rem 1.5rem;
+            border-radius: 12px;
+            font-weight: 600;
+            font-size: 0.95rem;
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-family: 'Inter', sans-serif;
+            letter-spacing: 0.01em;
+        }
+        
+        .btn-primary {
+            background: linear-gradient(135deg, #8b5cf6, #ec4899);
+            color: #fff;
+            box-shadow: 0 4px 15px rgba(139, 92, 246, 0.3);
+        }
+        
+        .btn-primary:hover:not(:disabled) {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(139, 92, 246, 0.4);
+        }
+        
+        .btn-primary:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+            transform: none;
+        }
+        
+        .btn-secondary {
+            background: rgba(139, 92, 246, 0.1);
+            color: #8b5cf6;
+            border: 1px solid rgba(139, 92, 246, 0.3);
+        }
+        
+        .btn-secondary:hover:not(:disabled) {
+            background: rgba(139, 92, 246, 0.2);
+            transform: translateY(-2px);
+        }
+        
+        .btn-secondary:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+        
+        .button-group {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 1rem;
+        }
+        
+        .progress-bar {
+            width: 100%;
+            height: 4px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 2px;
+            overflow: hidden;
+            margin-top: 1.5rem;
+            display: none;
+        }
+        
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #8b5cf6, #ec4899);
+            width: 0%;
+            transition: width 0.5s ease;
+            box-shadow: 0 0 10px rgba(139, 92, 246, 0.5);
+        }
+        
+        .log-console {
+            background: rgba(0, 0, 0, 0.5);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 16px;
+            padding: 1.25rem;
+            max-height: 450px;
+            overflow-y: auto;
+            font-family: 'Courier New', monospace;
+            font-size: 0.85rem;
+            line-height: 1.6;
+        }
+        
+        .log-console::-webkit-scrollbar {
+            width: 8px;
+        }
+        
+        .log-console::-webkit-scrollbar-track {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 4px;
+        }
+        
+        .log-console::-webkit-scrollbar-thumb {
+            background: rgba(139, 92, 246, 0.5);
+            border-radius: 4px;
+        }
+        
+        .log-entry {
+            margin-bottom: 0.5rem;
+            padding: 0.5rem;
+            border-radius: 6px;
+            animation: slideIn 0.3s ease;
+        }
+        
+        .log-info {
+            color: #60a5fa;
+            border-left: 3px solid #60a5fa;
+            padding-left: 0.75rem;
+        }
+        
+        .log-success {
+            color: #10b981;
+            background: rgba(16, 185, 129, 0.1);
+            border-left: 3px solid #10b981;
+            padding-left: 0.75rem;
+        }
+        
+        .log-error {
+            color: #ef4444;
+            background: rgba(239, 68, 68, 0.15);
+            border-left: 3px solid #ef4444;
+            padding-left: 0.75rem;
+        }
+        
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateX(-10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+        
+        .hidden {
+            display: none !important;
+        }
+        
+        .ip-refreshed {
+            position: fixed;
+            top: 2rem;
+            right: 2rem;
+            background: linear-gradient(135deg, #10b981, #059669);
+            color: white;
+            padding: 1rem 1.5rem;
+            border-radius: 12px;
+            font-weight: 600;
+            box-shadow: 0 8px 25px rgba(16, 185, 129, 0.4);
+            animation: slideInRight 0.3s ease, fadeOut 0.3s ease 1.7s forwards;
+            z-index: 1000;
+        }
+        
+        @keyframes slideInRight {
+            from {
+                opacity: 0;
+                transform: translateX(100px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+        
+        @keyframes fadeOut {
+            to {
+                opacity: 0;
+                transform: translateX(100px);
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 2rem;
+            }
+            
+            .status-card {
+                grid-template-columns: 1fr;
+            }
+            
+            .button-group {
+                grid-template-columns: 1fr;
+            }
+            
+            .toggle-group {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>GhostTube</h1>
+            <p>Anonymous YouTube Collector via Tor</p>
+        </div>
+
+        <div class="status-card">
+            <div class="status-info">
+                <div class="status-row">
+                    <div class="status-indicator" id="tor-indicator"></div>
+                    <span class="status-label">Tor Network:</span>
+                    <span class="status-value" id="tor-status">Checking...</span>
+                </div>
+                <div class="status-row">
+                    <span class="status-label">Exit Node IP:</span>
+                    <span class="status-value" id="current-ip">Loading...</span>
+                </div>
+            </div>
+            <button id="rotate-btn" class="btn btn-secondary">Rotate Identity</button>
+        </div>
+
+        <div class="card">
+            <form id="download-form">
+                <div class="form-group">
+                    <label for="query">Search Query</label>
+                    <input type="text" id="query" name="query" placeholder="Enter your search term..." required>
+                </div>
+                
+                <div class="form-group">
+                    <label>Download Options</label>
+                    <div class="toggle-group">
+                        <div class="toggle">
+                            <input type="checkbox" id="audio" name="audio" checked>
+                            <label for="audio">Audio</label>
+                        </div>
+                        <div class="toggle">
+                            <input type="checkbox" id="video" name="video">
+                            <label for="video">Video</label>
+                        </div>
+                        <div class="toggle">
+                            <input type="checkbox" id="transcripts" name="transcripts">
+                            <label for="transcripts">Transcripts</label>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="form-group" id="format-group">
+                    <label for="format">Audio Format</label>
+                    <select id="format" name="format">
+                        <option value="mp3">MP3 - Universal</option>
+                        <option value="aac">AAC - Compact</option>
+                        <option value="flac">FLAC - Lossless</option>
+                        <option value="wav">WAV - Uncompressed</option>
+                        <option value="ogg">OGG - Open Source</option>
+                        <option value="opus">Opus - Modern</option>
+                        <option value="m4a">M4A - Apple</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label for="max_results">Maximum Results (1-50)</label>
+                    <input type="number" id="max_results" name="max_results" min="1" max="50" value="10" required>
+                </div>
+                
+                <div class="button-group">
+                    <button type="button" id="search-btn" class="btn btn-secondary">Search Only</button>
+                    <button type="submit" class="btn btn-primary">Download Content</button>
+                </div>
+                
+                <div class="progress-bar" id="progress-bar">
+                    <div class="progress-fill" id="progress-fill"></div>
+                </div>
+            </form>
+        </div>
+
+        <div class="card">
+            <div id="log-console" class="log-console hidden">
+                <div class="log-entry log-info">[System] Console initialized. Ready to process requests.</div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Use the current page's origin (works locally and remotely)
+        const API_BASE = window.location.origin;
+        const logConsole = document.getElementById('log-console');
+        let isProcessing = false;
+
+        function addLog(message, type = 'info') {
+            const entry = document.createElement('div');
+            entry.classList.add('log-entry', `log-${type}`);
+            const time = new Date().toLocaleTimeString();
+            entry.textContent = `[${time}] ${message}`;
+            logConsole.appendChild(entry);
+            logConsole.scrollTop = logConsole.scrollHeight;
+            logConsole.classList.remove('hidden');
+        }
+
+        function updateProgress(percent) {
+            const progressBar = document.getElementById('progress-bar');
+            const progressFill = document.getElementById('progress-fill');
+            progressFill.style.width = `${percent}%`;
+            progressBar.style.display = percent > 0 ? 'block' : 'none';
+        }
+
+        function setButtonsDisabled(disabled) {
+            isProcessing = disabled;
+            document.getElementById('search-btn').disabled = disabled;
+            document.getElementById('rotate-btn').disabled = disabled;
+            document.querySelector('button[type="submit"]').disabled = disabled;
+        }
+
+        function showIPRefreshNotification() {
+            const notification = document.createElement('div');
+            notification.className = 'ip-refreshed';
+            notification.textContent = 'IP Rotated Successfully';
+            document.body.appendChild(notification);
+            setTimeout(() => notification.remove(), 2000);
+        }
+
+        async function updateStatus(showNotification = false) {
+            try {
+                const res = await fetch(`${API_BASE}/status`);
+                if (!res.ok) throw new Error('Status fetch failed');
+                const data = await res.json();
+                
+                const torStatus = document.getElementById('tor-status');
+                const torIndicator = document.getElementById('tor-indicator');
+                const ipSpan = document.getElementById('current-ip');
+                
+                if (data.tor_connected) {
+                    torStatus.textContent = 'Connected';
+                    torIndicator.className = 'status-indicator status-connected';
+                } else {
+                    torStatus.textContent = 'Disconnected';
+                    torIndicator.className = 'status-indicator status-disconnected';
+                }
+                
+                ipSpan.textContent = data.current_ip;
+                
+                if (showNotification) {
+                    showIPRefreshNotification();
+                }
+            } catch (err) {
+                addLog(`Status check failed: ${err.message}`, 'error');
+            }
+        }
+
+        async function rotateIdentity() {
+            if (isProcessing) return;
+            addLog('Requesting new Tor circuit...', 'info');
+            setButtonsDisabled(true);
+            
+            try {
+                const res = await fetch(`${API_BASE}/rotate`, { method: 'POST' });
+                if (!res.ok) throw new Error(await res.text());
+                const data = await res.json();
+                
+                if (data.success) {
+                    addLog(`Identity rotated: ${data.old_ip} → ${data.new_ip}`, 'success');
+                    updateStatus(true);
+                } else {
+                    addLog('Identity rotation failed', 'error');
+                }
+            } catch (err) {
+                addLog(`Rotation error: ${err.message}`, 'error');
+            } finally {
+                setButtonsDisabled(false);
+            }
+        }
+
+        async function performSearch(query, maxResults) {
+            addLog(`Searching for "${query}" (max ${maxResults} results)...`, 'info');
+            updateProgress(20);
+            
+            try {
+                const res = await fetch(`${API_BASE}/search`, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ query, max_results: maxResults })
+                });
+                
+                if (!res.ok) {
+                    const error = await res.text();
+                    throw new Error(error);
+                }
+                
+                const data = await res.json();
+                updateProgress(100);
+                
+                addLog(`Found ${data.count} YouTube videos in directory: ${data.subdir}`, 'success');
+                
+                data.results.slice(0, 5).forEach((url, i) => {
+                    const shortened = url.length > 70 ? url.substring(0, 70) + '...' : url;
+                    addLog(`[${i+1}] ${shortened}`, 'info');
+                });
+                
+                if (data.count > 5) {
+                    addLog(`...and ${data.count - 5} more results`, 'info');
+                }
+                
+                setTimeout(() => updateProgress(0), 1500);
+            } catch (err) {
+                addLog(`Search failed: ${err.message}`, 'error');
+                updateProgress(0);
+            }
+        }
+
+        async function performDownload(formData) {
+            const types = [];
+            if (formData.audio) types.push('Audio');
+            if (formData.video) types.push('Video');
+            if (formData.transcripts) types.push('Transcripts');
+            
+            addLog(`Initiating download: "${formData.query}"`, 'info');
+            addLog(`Options: ${types.join(', ')} | Format: ${formData.format.toUpperCase()} | Count: ${formData.max_results}`, 'info');
+            
+            updateProgress(10);
+            
+            try {
+                const res = await fetch(`${API_BASE}/download`, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(formData)
+                });
+                
+                if (!res.ok) {
+                    const error = await res.text();
+                    throw new Error(error);
+                }
+                
+                updateProgress(50);
+                const data = await res.json();
+                updateProgress(100);
+                
+                const successCount = data.downloads.filter(d => d.status === 'success').length;
+                addLog(`Download complete: ${successCount}/${data.downloads.length} successful`, 'success');
+                
+                data.downloads.forEach((dl, i) => {
+                    const shortened = dl.url.length > 50 ? dl.url.substring(0, 50) + '...' : dl.url;
+                    const status = dl.status === 'success' ? 'success' : 'error';
+                    addLog(`[${i+1}] ${shortened} - ${dl.status}`, status);
+                });
+                
+                if (data.audio_dir) addLog(`Audio → ${data.audio_dir}`, 'success');
+                if (data.video_dir) addLog(`Video → ${data.video_dir}`, 'success');
+                if (data.transcripts_dir) addLog(`Transcripts → ${data.transcripts_dir}`, 'success');
+                
+                setTimeout(() => updateProgress(0), 2000);
+            } catch (err) {
+                addLog(`Download failed: ${err.message}`, 'error');
+                updateProgress(0);
+            }
+        }
+
+        document.getElementById('rotate-btn').addEventListener('click', rotateIdentity);
+        
+        document.getElementById('search-btn').addEventListener('click', async () => {
+            if (isProcessing) return;
+            
+            const query = document.getElementById('query').value.trim();
+            const maxResults = parseInt(document.getElementById('max_results').value);
+            
+            if (!query) {
+                addLog('Please enter a search query', 'error');
+                return;
+            }
+            
+            setButtonsDisabled(true);
+            await performSearch(query, maxResults);
+            setButtonsDisabled(false);
+        });
+        
+        document.getElementById('download-form').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            if (isProcessing) return;
+            
+            const formData = {
+                query: document.getElementById('query').value.trim(),
+                audio: document.getElementById('audio').checked,
+                video: document.getElementById('video').checked,
+                transcripts: document.getElementById('transcripts').checked,
+                format: document.getElementById('format').value,
+                max_results: parseInt(document.getElementById('max_results').value)
+            };
+            
+            if (!formData.query) {
+                addLog('Please enter a search query', 'error');
+                return;
+            }
+            
+            if (!formData.audio && !formData.video && !formData.transcripts) {
+                addLog('Please select at least one download type', 'error');
+                return;
+            }
+            
+            setButtonsDisabled(true);
+            await performDownload(formData);
+            setButtonsDisabled(false);
+        });
+
+        const audioCheckbox = document.getElementById('audio');
+        const formatGroup = document.getElementById('format-group');
+        
+        audioCheckbox.addEventListener('change', () => {
+            formatGroup.style.display = audioCheckbox.checked ? 'block' : 'none';
+        });
+
+        setInterval(updateStatus, 15000);
+        
+        updateStatus();
+        addLog('System initialized. Checking Tor connection...', 'info');
+    </script>
+</body>
+</html>

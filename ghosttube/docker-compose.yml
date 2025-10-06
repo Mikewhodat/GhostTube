@@ -1,0 +1,32 @@
+services:
+  ghosttube:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: ghosttube
+    ports:
+      - "8000:8000"                     # Expose FastAPI service
+    volumes:
+      # Use absolute path to avoid tilde expansion issues when running with sudo
+      # This creates ghosttube_downloads in your home directory
+      - /home/mikejones/ghosttube_downloads:/root/shared:rw
+      
+      # Alternative for Termux (uncomment if using Termux):
+      # - /data/data/com.termux/files/home/ghosttube_downloads:/root/shared:rw
+    restart: unless-stopped             # Auto-restart on crash or reboot
+    healthcheck:
+      test: ["CMD", "wget", "--no-verbose", "--tries=1", "--spider", "http://localhost:8000/status"]
+      interval: 30s
+      timeout: 10s
+      start_period: 40s
+      retries: 3
+    environment:
+      - PYTHONUNBUFFERED=1              # Ensure real-time log streaming
+    logging:
+      driver: json-file
+      options:
+        max-size: "10m"
+        max-file: "3"
+    # Network note: Container runs with default bridge network
+    # Access via: http://localhost:8000 (same machine)
+    #            http://YOUR_VM_IP:8000 (from other devices on network)
