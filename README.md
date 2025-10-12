@@ -471,11 +471,11 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 - [Alpine Linux](https://alpinelinux.org) - Lightweight container base
 
 ### Contributors
-- [Your Name] - Initial development and maintenance
+- Mike Jones- Initial development and maintenance
 
 ## 📞 Support
 
-- **GitHub Issues**: [Report bugs or request features](https://github.com/yourusername/ghosttube/issues)
+- **GitHub Issues**: [Report bugs or request features](https://github.com/Mikewhodat/ghosttube/issues)
 - **Documentation**: Check this README and API docs at `/docs`
 - **Community**: Join discussions in GitHub Discussions
 
