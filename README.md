@@ -473,7 +473,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 ### Contributors
 - Mike Jones- Initial development and maintenance
 
-But I would love to have more contributors.
+I would love to have more contributors. 
 
 ## 📞 Support
 
