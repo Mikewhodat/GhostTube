@@ -1,6 +1,6 @@
 # V1 code code does not contain a cookies.txt captured from a signed in account from a throwaway email.Obviously future versions will contain that
 # if you are experiencing issues where the fast API is not loading the reason for that is you need to change the sleep.
-Torsion, in the command to a little longer. Currently, it is 30 seconds, but the bootstrap needs time to actually complete for connection.
+Tor in the command to a little longer. Currently, it is 30 seconds, but the bootstrap needs time to actually complete for connection.
 # 🕵️ GhostTube
 
 **Anonymous YouTube Content Collector with Tor Integration**
