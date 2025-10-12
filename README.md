@@ -473,6 +473,8 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 ### Contributors
 - Mike Jones- Initial development and maintenance
 
+But I would love to have more contributors.
+
 ## 📞 Support
 
 - **GitHub Issues**: [Report bugs or request features](https://github.com/Mikewhodat/ghosttube/issues)
