@@ -1,6 +1,3 @@
-# V1 code code does not contain a cookies.txt captured from a signed in account from a throwaway email.Obviously future versions will contain that
-# if you are experiencing issues where the fast API is not loading the reason for that is you need to change the sleep.
-Tor in the command to a little longer. Currently, it is 30 seconds, but the bootstrap needs time to actually complete for connection.
 # 🕵️ GhostTube
 
 **Anonymous YouTube Content Collector with Tor Integration**
@@ -487,3 +484,14 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 **⚠️ Remember**: Use responsibly and respect copyright laws. This tool is designed for privacy-conscious users who want to collect content they have permission to download.
 
 **🕵️ Stay Anonymous**: GhostTube helps protect your privacy, but always be aware of your local laws and regulations.
+
+# V1 code code does not contain a cookies.txt captured from a signed in account from a throwaway email.Obviously future versions will contain that
+# if you are experiencing issues where the fast API is not loading the reason for that is you need to change the CMD for
+Tor a little longer. Currently, it is 30 seconds, but the bootstrap needs time to actually complete for connection.
+
+So, if you're getting this cycle of the fast, API attempting to load and failing to load the reason for that is because I've set this script up to reject.
+Standard networking configurations. the good news is, it's all self-contained within the container.
+
+```bash
+CMD ["sh", "-c", "echo 'Starting Tor...' && tor -f /etc/tor/torrc & sleep 60 && echo 'Starting FastAPI...' && python fastapi-ghosttube-v-2.py"]
+```
