@@ -270,7 +270,7 @@ Response:
 
 1. **Clone and setup**:
 ```bash
-git clone https://github.com/yourusername/ghosttube.git
+git clone https://github.com/Mikewhodat/GhostTube.git
 cd ghosttube
 ```
 
