@@ -1,0 +1,7 @@
+this is temporary. Obviously I'm not going to ship one of my cookies connected to even one of my throwaway. Email accounts.
+
+if you're wondering how to acquire this, go to the extension manager in Firefox and download cookies.txt from your own account again, this is optional.
+
+and unless you want to go through the fast-API and change the name variable match the variable. from your cookies.txt to --> YT_cookies.txt.
+
+again, optional, you will get better results and less rejections. I would not recommend using your primary email.
