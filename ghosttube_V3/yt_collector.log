@@ -1,0 +1,36 @@
+2025-10-18 19:42:09,774 [ERROR] Missing: No module named 'stem'
+2025-10-18 19:42:09,774 [ERROR] pip install requests[socks] stem yt-dlp fastapi uvicorn pydantic
+2025-10-18 23:45:01,421 [INFO] Search: 'Immortal technique' (max=10)
+2025-10-18 23:45:05,698 [INFO] ✓ Found 4 videos via DuckDuckGo
+2025-10-18 23:54:35,565 [INFO] [JOB b003a2e2] Starting download of 4 videos (concurrent=3)
+2025-10-18 23:55:08,566 [INFO] ✓ Success: The Point of No Return | Immortal Technique (retries=0)
+2025-10-18 23:55:16,154 [INFO] ✓ Success: The Cause Of Death (retries=0)
+2025-10-18 23:55:17,707 [INFO] ✓ Success: Dance With The Devil - Immortal Technique (retries=0)
+2025-10-18 23:55:39,778 [INFO] ✓ Success: Immortal Technique- Caught In a Hustle  (con subtitulos) (retries=0)
+2025-10-18 23:55:39,785 [INFO] [JOB b003a2e2] Saved results to /data/data/com.termux/files/home/GhostTube/ghosttube/output/logs/job_b003a2e2-0579-4c4f-ae17-11992a9e8c25_20251018_235539.json
+2025-10-19 00:05:11,230 [INFO] [JOB e4b5a6b8] Starting download of 1 videos (concurrent=1)
+2025-10-19 00:05:56,061 [INFO] ✓ Success: Unknown (timeout) (retries=0)
+2025-10-19 00:05:56,065 [INFO] [JOB e4b5a6b8] Saved results to /data/data/com.termux/files/home/GhostTube/ghosttube/output/logs/job_e4b5a6b8-3642-4405-9293-cce29977ac9f_20251019_000556.json
+2025-10-19 00:10:24,995 [DEBUG] GETCONF __owningcontrollerprocess (runtime: 0.0026)
+2025-10-19 00:10:25,020 [INFO] Error while receiving a control message (SocketClosed): received exception "read of closed file"
+2025-10-19 00:10:34,089 [INFO] ✓ Tor rotated, new IP: 185.220.100.243
+2025-10-19 00:10:38,777 [DEBUG] GETCONF __owningcontrollerprocess (runtime: 0.0003)
+2025-10-19 00:10:38,796 [INFO] Error while receiving a control message (SocketClosed): received exception "read of closed file"
+2025-10-19 00:10:47,989 [INFO] ✓ Tor rotated, new IP: 45.84.107.54
+2025-10-19 00:17:37,906 [INFO] Search: 'Kelly Clarkson' (max=10)
+2025-10-19 00:17:40,397 [INFO] ✓ Found 4 videos via DuckDuckGo
+2025-10-19 00:18:37,662 [INFO] [JOB 1398260d] Starting download of 4 videos (concurrent=10)
+2025-10-19 00:19:08,318 [INFO] ✓ Success: 'Blinding Lights' by The Weeknd | Kelly Clarkson Kellyoke Cover (retries=0)
+2025-10-19 00:19:13,366 [INFO] ✓ Success: Kelly Clarkson - I Will Always Love You (Live from the 57th ACM Awards) (retries=0)
+2025-10-19 00:19:15,372 [INFO] ✓ Success: Kelly Clarkson - Where Have You Been (Official Music Video) (retries=0)
+2025-10-19 00:19:35,785 [INFO] ✓ Success: Kelly Clarkson - Because Of You (Official HD Video) (retries=0)
+2025-10-19 00:19:35,790 [INFO] [JOB 1398260d] Saved results to /data/data/com.termux/files/home/GhostTube/ghosttube/output/logs/job_1398260d-91f3-416b-8f3f-035ad57579d8_20251019_001935.json
+2025-10-19 00:26:29,267 [INFO] Search: 'Avril Lavigne' (max=10)
+2025-10-19 00:26:31,704 [INFO] ✓ Found 3 videos via DuckDuckGo
+2025-10-19 00:27:39,101 [INFO] [JOB 70ee7952] Starting download of 3 videos (concurrent=10)
+2025-10-19 00:29:33,188 [INFO] ✓ Success: Avril Lavigne - Girlfriend (Official Video) (retries=0)
+2025-10-19 00:30:31,363 [INFO] ✓ Success: Avril Lavigne - Complicated (Official Video) (retries=0)
+2025-10-19 00:33:20,526 [INFO] ✓ Success: Avril Lavigne - Young & Dumb (feat. Simple Plan) (Official Video) (retries=0)
+2025-10-19 00:33:20,534 [INFO] [JOB 70ee7952] Saved results to /data/data/com.termux/files/home/GhostTube/ghosttube/output/logs/job_70ee7952-4a33-491c-9a25-a2b273b46351_20251019_003320.json
+2025-10-19 00:35:20,622 [INFO] Search: 'Avril Lavigne' (max=10)
+2025-10-19 00:35:23,215 [INFO] ✓ Found 4 videos via DuckDuckGo

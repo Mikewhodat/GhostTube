@@ -1,0 +1,189 @@
+2025-10-19 00:47:59,625 [INFO] 👻 Search: 'Avril Lavigne' (max=50)
+2025-10-19 00:47:59,903 [WARNING] yt-dlp search failed: 
+Usage: __main__.py [OPTIONS] URL [URL...]
+
+__main__.py: error: no such option: --playlist-end 50
+
+2025-10-19 00:48:02,690 [INFO] 👻 Found 3 videos via DuckDuckGo
+2025-10-19 00:55:30,579 [INFO] 👻 Search: 'taylor Swift' (max=50)
+2025-10-19 00:55:31,883 [WARNING] yt-dlp search failed: 
+Usage: __main__.py [OPTIONS] URL [URL...]
+
+__main__.py: error: no such option: --playlist-end 50
+
+2025-10-19 00:55:34,314 [INFO] 👻 Found 4 videos via DuckDuckGo
+2025-10-19 00:59:30,537 [INFO] [JOB a40f2a0c] Starting download of 1 videos (concurrent=10)
+2025-10-19 01:00:49,750 [INFO] 👻 Success: Taylor Swift - Lover (Official Music Video) (retries=0)
+2025-10-19 01:00:49,760 [INFO] [JOB a40f2a0c] Saved results to /data/data/com.termux/files/home/GhostTube/ghosttube/output/logs/job_a40f2a0c-8a23-4b84-a303-ba6f8547661e_20251019_010049.json
+2025-10-19 01:16:49,031 [INFO] 👻 Search: 'Avril Lavigne' (max=50)
+2025-10-19 01:16:53,068 [INFO] yt-dlp returned 0 URLs
+2025-10-19 01:16:56,155 [INFO] 👻 Found 3 videos via DuckDuckGo
+2025-10-19 01:24:57,408 [INFO] 👻 Search: 'Avril Lavigne' (max=50)
+2025-10-19 01:25:04,870 [INFO] yt-dlp returned 0 URLs
+2025-10-19 01:25:18,662 [INFO] No more results from DuckDuckGo
+2025-10-19 01:25:18,663 [INFO] DuckDuckGo returned 4 URLs after 2 pages
+2025-10-19 01:25:18,668 [INFO] 👻 Found 4 videos via DuckDuckGo
+2025-10-19 04:40:35,075 [INFO] 👻 Search: 'This is Halloween' (max=50)
+2025-10-19 04:40:37,929 [WARNING] yt-dlp search failed: ERROR: [generic] 'ytsearchThis is Halloween' is not a valid URL
+
+2025-10-19 04:40:40,522 [INFO] 👻 Found 10 videos via DuckDuckGo
+2025-10-19 04:42:23,543 [INFO] [JOB 4ae31e2c] Starting download of 3 videos (concurrent=10)
+2025-10-19 04:43:21,467 [INFO] 👻 Success: The Nightmare Before Christmas Soundtrack #03 This is Halloween (retries=0)
+2025-10-19 04:43:43,093 [INFO] 👻 Success: Tim Burton's This Is Halloween (HD) (retries=0)
+2025-10-19 04:52:01,096 [DEBUG] GETCONF __owningcontrollerprocess (runtime: 0.0021)
+2025-10-19 04:52:01,121 [INFO] Error while receiving a control message (SocketClosed): empty socket content
+2025-10-19 04:52:01,122 [INFO] Error while receiving a control message (SocketClosed): empty socket content
+2025-10-19 04:52:01,122 [INFO] Error while receiving a control message (SocketClosed): empty socket content
+2025-10-19 04:52:01,122 [INFO] Error while receiving a control message (SocketClosed): empty socket content
+2025-10-19 04:52:01,122 [INFO] Error while receiving a control message (SocketClosed): empty socket content
+2025-10-19 04:52:01,122 [INFO] Error while receiving a control message (SocketClosed): empty socket content
+2025-10-19 04:52:01,122 [INFO] Error while receiving a control message (SocketClosed): empty socket content
+2025-10-19 04:52:01,122 [INFO] Error while receiving a control message (SocketClosed): empty socket content
+2025-10-19 04:52:01,122 [INFO] Error while receiving a control message (SocketClosed): empty socket content
+2025-10-19 04:52:01,123 [INFO] Error while receiving a control message (SocketClosed): empty socket content
+2025-10-19 04:52:01,123 [INFO] Error while receiving a control message (SocketClosed): empty socket content
+2025-10-19 04:52:01,123 [INFO] Error while receiving a control message (SocketClosed): empty socket content
+2025-10-19 04:52:01,123 [INFO] Error while receiving a control message (SocketClosed): empty socket content
+2025-10-19 04:52:01,123 [INFO] Error while receiving a control message (SocketClosed): empty socket content
+2025-10-19 04:52:01,123 [INFO] Error while receiving a control message (SocketClosed): empty socket content
+2025-10-19 04:52:01,123 [INFO] Error while receiving a control message (SocketClosed): empty socket content
+2025-10-19 04:52:01,123 [INFO] Error while receiving a control message (SocketClosed): empty socket content
+2025-10-19 04:52:01,123 [INFO] Error while receiving a control message (SocketClosed): empty socket content
+2025-10-19 04:52:01,123 [INFO] Error while receiving a control message (SocketClosed): empty socket content
+2025-10-19 04:52:01,124 [INFO] Error while receiving a control message (SocketClosed): empty socket content
+2025-10-19 04:52:01,124 [INFO] Error while receiving a control message (SocketClosed): empty socket content
+2025-10-19 04:52:01,124 [INFO] Error while receiving a control message (SocketClosed): empty socket content
+2025-10-19 04:52:01,124 [INFO] Error while receiving a control message (SocketClosed): empty socket content
+2025-10-19 04:52:01,124 [INFO] Error while receiving a control message (SocketClosed): empty socket content
+2025-10-19 04:52:01,124 [INFO] Error while receiving a control message (SocketClosed): empty socket content
+2025-10-19 04:52:01,124 [INFO] Error while receiving a control message (SocketClosed): empty socket content
+2025-10-19 04:52:01,124 [INFO] Error while receiving a control message (SocketClosed): empty socket content
+2025-10-19 04:52:01,124 [INFO] Error while receiving a control message (SocketClosed): empty socket content
+2025-10-19 04:52:01,124 [INFO] Error while receiving a control message (SocketClosed): empty socket content
+2025-10-19 04:52:01,124 [INFO] Error while receiving a control message (SocketClosed): empty socket content
+2025-10-19 04:52:01,124 [INFO] Error while receiving a control message (SocketClosed): empty socket content
+2025-10-19 04:52:01,124 [INFO] Error while receiving a control message (SocketClosed): empty socket content
+2025-10-19 04:52:01,125 [INFO] Error while receiving a control message (SocketClosed): empty socket content
+2025-10-19 04:52:01,125 [INFO] Error while receiving a control message (SocketClosed): empty socket content
+2025-10-19 04:52:01,125 [INFO] Error while receiving a control message (SocketClosed): empty socket content
+2025-10-19 04:52:01,125 [INFO] Error while receiving a control message (SocketClosed): empty socket content
+2025-10-19 04:52:01,125 [INFO] Error while receiving a control message (SocketClosed): empty socket content
+2025-10-19 04:52:01,125 [INFO] Error while receiving a control message (SocketClosed): empty socket content
+2025-10-19 04:52:01,125 [INFO] Error while receiving a control message (SocketClosed): empty socket content
+2025-10-19 04:52:01,125 [INFO] Error while receiving a control message (SocketClosed): empty socket content
+2025-10-19 04:52:01,125 [INFO] Error while receiving a control message (SocketClosed): empty socket content
+2025-10-19 04:52:01,125 [INFO] Error while receiving a control message (SocketClosed): empty socket content
+2025-10-19 04:52:01,125 [INFO] Error while receiving a control message (SocketClosed): empty socket content
+2025-10-19 04:52:01,125 [INFO] Error while receiving a control message (SocketClosed): empty socket content
+2025-10-19 04:52:01,125 [INFO] Error while receiving a control message (SocketClosed): empty socket content
+2025-10-19 04:52:01,125 [INFO] Error while receiving a control message (SocketClosed): empty socket content
+2025-10-19 04:52:01,125 [INFO] Error while receiving a control message (SocketClosed): empty socket content
+2025-10-19 04:52:01,125 [INFO] Error while receiving a control message (SocketClosed): empty socket content
+2025-10-19 04:52:01,125 [INFO] Error while receiving a control message (SocketClosed): empty socket content
+2025-10-19 04:52:01,125 [INFO] Error while receiving a control message (SocketClosed): empty socket content
+2025-10-19 04:52:01,126 [INFO] Error while receiving a control message (SocketClosed): empty socket content
+2025-10-19 04:52:01,126 [INFO] Error while receiving a control message (SocketClosed): empty socket content
+2025-10-19 04:52:01,126 [INFO] Error while receiving a control message (SocketClosed): empty socket content
+2025-10-19 04:52:01,126 [INFO] Error while receiving a control message (SocketClosed): empty socket content
+2025-10-19 04:52:01,126 [INFO] Error while receiving a control message (SocketClosed): empty socket content
+2025-10-19 04:52:12,236 [INFO] 👻 Tor rotated, new IP: 171.25.193.39
+2025-10-19 04:52:53,203 [INFO] 👻 Search: 'My jolly sailor boy' (max=50)
+2025-10-19 04:52:55,473 [WARNING] yt-dlp search failed: ERROR: [generic] 'ytsearchMy jolly sailor boy' is not a valid URL
+
+2025-10-19 04:52:57,953 [INFO] 👻 Found 10 videos via DuckDuckGo
+2025-10-19 04:54:13,184 [WARNING] Timeout, retry 1/3
+2025-10-19 04:57:00,179 [INFO] [JOB 960c5aff] Starting download of 10 videos (concurrent=10)
+2025-10-19 04:57:44,213 [INFO] 👻 Success: My Jolly Sailor Bold (Pirates of the Caribbean: On Stranger Tides) HD (retries=0)
+2025-10-19 04:57:45,235 [INFO] 👻 Success: My Jolly Sailor Bold [Mermaid Song] - Pirates of the Caribbean: On Stranger Tides  [+Lyrics] (retries=0)
+2025-10-19 04:57:56,050 [INFO] 👻 Success: My Jolly Sailor Bold - Ashley Serena (retries=0)
+2025-10-19 04:58:45,621 [INFO] 👻 Success: English Folk Song - My Jolly Sailor Bold (retries=0)
+2025-10-19 04:58:46,688 [INFO] 👻 Success: “My Jolly Sailor Bold” from Pirates of the Caribbean (retries=0)
+2025-10-19 04:58:51,519 [INFO] 👻 Success: My Jolly Sailor Bold - Ashley Serena lyrics (retries=0)
+2025-10-19 04:59:46,427 [INFO] 👻 Success: My Jolly Sailor Bold -Full -  Lyrics (retries=0)
+2025-10-19 04:59:47,570 [INFO] 👻 Success: My Jolly Sailor Bold | The Hound + The Fox (retries=0)
+2025-10-19 04:59:49,442 [INFO] 👻 Success: My Jolly Sailor Bold - Rachel Hardy & Colm McGuinness (Pirates of the Caribbean: On Stranger Tides) (retries=0)
+2025-10-19 05:00:35,174 [INFO] 👻 Success: My Jolly Sailor Bold (retries=0)
+2025-10-19 05:00:35,192 [INFO] [JOB 960c5aff] Saved results to /data/data/com.termux/files/home/GhostTube/ghosttube/output/logs/job_960c5aff-330a-49d7-b5bf-93bf9973b248_20251019_050035.json
+2025-10-19 05:04:27,338 [WARNING] Timeout, retry 2/3
+2025-10-19 05:14:48,404 [INFO] [JOB 4ae31e2c] Saved results to /data/data/com.termux/files/home/GhostTube/ghosttube/output/logs/job_4ae31e2c-8f9e-4f7f-8f9e-89582ff20980_20251019_051448.json
+2025-10-19 05:56:13,970 [INFO] 👻 Search: 'The Phantom of the Opera soundtrack' (max=50)
+2025-10-19 05:56:16,568 [WARNING] yt-dlp search failed: ERROR: [generic] 'ytsearchThe Phantom of the Opera soundtrack' is not a valid URL
+
+2025-10-19 05:56:19,368 [INFO] 👻 Found 1 videos via DuckDuckGo
+2025-10-19 05:56:43,802 [INFO] [JOB 181361f5] Starting download of 1 videos (concurrent=10)
+2025-10-19 05:57:16,632 [INFO] 👻 Success: The Phantom of the Opera Soundtrack - OST (retries=0)
+2025-10-19 05:57:16,641 [INFO] [JOB 181361f5] Saved results to /data/data/com.termux/files/home/GhostTube/ghosttube/output/logs/job_181361f5-066a-455e-b893-7ca164d35641_20251019_055716.json
+2025-10-19 06:08:03,331 [INFO] 👻 Search: 'See You Again' (max=50)
+2025-10-19 06:08:05,815 [WARNING] yt-dlp search failed: ERROR: [generic] 'ytsearchSee You Again' is not a valid URL
+
+2025-10-19 06:08:08,464 [INFO] 👻 Found 10 videos via DuckDuckGo
+2025-10-19 06:10:47,821 [INFO] [JOB 0fbf5fe5] Starting download of 3 videos (concurrent=1)
+2025-10-19 06:11:33,942 [INFO] [JOB 0fbf5fe5] Saved results to /data/data/com.termux/files/home/GhostTube/ghosttube/output/logs/job_0fbf5fe5-bc45-497c-9622-6c624a78f8b6_20251019_061133.json
+2025-10-19 06:12:55,204 [INFO] 👻 Search: 'See You Again' (max=50)
+2025-10-19 06:12:56,655 [WARNING] yt-dlp search failed: ERROR: [generic] 'ytsearchSee You Again' is not a valid URL
+
+2025-10-19 06:13:00,923 [INFO] 👻 Found 10 videos via DuckDuckGo
+2025-10-19 06:14:22,003 [DEBUG] GETCONF __owningcontrollerprocess (runtime: 0.0027)
+2025-10-19 06:14:22,044 [INFO] Error while receiving a control message (SocketClosed): received exception "read of closed file"
+2025-10-19 06:14:22,048 [INFO] Error while receiving a control message (SocketClosed): received exception "peek of closed file"
+2025-10-19 06:14:31,236 [INFO] 👻 Tor rotated, new IP: 192.108.48.150
+2025-10-19 06:14:45,407 [INFO] [JOB b5f80f7e] Starting download of 10 videos (concurrent=1)
+2025-10-19 06:15:15,902 [INFO] 👻 Success: Wiz Khalifa - See You Again ft. Charlie Puth [Official Video] Furious 7 Soundtrack (retries=0)
+2025-10-19 06:15:53,193 [INFO] 👻 Success: Wiz Khalifa - See You Again (Lyrics) ft. Charlie Puth (retries=0)
+2025-10-19 06:16:16,404 [INFO] 👻 Success: Wiz Khalifa - See You Again ft. Charlie Puth [Official Video] Furious 7 Soundtrack (retries=0)
+2025-10-19 06:17:37,371 [INFO] 👻 Success: Wiz Khalifa, Charlie Puth, Lindsey Stirling - See You Again (2015 Billboard Music Awards) (retries=0)
+2025-10-19 06:17:59,641 [INFO] 👻 Success: Wiz Khalifa - See You Again ft. Charlie Puth • Fast & Furious 7 (retries=0)
+2025-10-19 06:18:26,378 [INFO] 👻 Success: Wiz Khalifa ft. Charlie Puth - See You Again (HQ Audio) (Remastered) (retries=0)
+2025-10-19 06:18:53,634 [INFO] 👻 Success: See You Again (feat. Charlie Puth) (retries=0)
+2025-10-19 06:19:13,657 [INFO] 👻 Success: See You Again (feat. Charlie Puth) (retries=0)
+2025-10-19 06:19:42,583 [INFO] 👻 Success: Unknown (timeout) (retries=0)
+2025-10-19 06:20:19,534 [INFO] 👻 Success: See You Again ft. Charlie Puth [Official Video] Furious 7 Soundtrack (retries=0)
+2025-10-19 06:20:19,538 [INFO] [JOB b5f80f7e] Saved results to /data/data/com.termux/files/home/GhostTube/ghosttube/output/logs/job_b5f80f7e-d1ba-4501-9387-53c3f963c4f7_20251019_062019.json
+2025-10-19 06:52:14,261 [INFO] [JOB d3e7cc10] Starting download of 1 videos (concurrent=1)
+2025-10-19 06:52:54,588 [INFO] 👻 Success: "The Devil Is A Democrat" - Tom MacDonald (retries=0)
+2025-10-19 06:52:54,594 [INFO] [JOB d3e7cc10] Saved results to /data/data/com.termux/files/home/GhostTube/ghosttube/output/logs/job_d3e7cc10-a87c-4494-aace-af4bdcb42814_20251019_065254.json
+2025-10-19 16:30:18,558 [INFO] 👻 Search: 'Rodney Carrington' (max=50)
+2025-10-19 16:30:21,345 [WARNING] yt-dlp search failed: ERROR: [generic] 'ytsearchRodney Carrington' is not a valid URL
+
+2025-10-19 16:30:24,069 [INFO] 👻 Found 6 videos via DuckDuckGo
+2025-10-19 16:35:21,939 [INFO] 👻 Search: 'Rodney Carrington' (max=50)
+2025-10-19 16:35:23,394 [WARNING] yt-dlp search failed: ERROR: [generic] 'ytsearchRodney Carrington' is not a valid URL
+
+2025-10-19 16:35:25,581 [INFO] 👻 Found 5 videos via DuckDuckGo
+2025-10-19 16:37:27,815 [INFO] 👻 Search: 'Rodney Carrington' (max=50)
+2025-10-19 16:37:31,153 [WARNING] yt-dlp search failed: ERROR: [generic] 'ytsearchRodney Carrington' is not a valid URL
+
+2025-10-19 16:37:33,350 [INFO] 👻 Found 6 videos via DuckDuckGo
+2025-10-19 16:40:00,177 [ERROR] Failed to get Tor IP: SOCKSHTTPSConnectionPool(host='api.ipify.org', port=443): Max retries exceeded with url: /?format=text (Caused by NewConnectionError('<urllib3.contrib.socks.SOCKSHTTPSConnection object at 0x6e65b25a90>: Failed to establish a new connection: [Errno 7] No address associated with hostname'))
+2025-10-19 16:42:26,716 [ERROR] Failed to get Tor IP: SOCKSHTTPSConnectionPool(host='api.ipify.org', port=443): Max retries exceeded with url: /?format=text (Caused by NewConnectionError('<urllib3.contrib.socks.SOCKSHTTPSConnection object at 0x6e65b26750>: Failed to establish a new connection: 0x01: General SOCKS server failure'))
+2025-10-19 17:04:35,389 [INFO] [JOB d2ee788f] Starting download of 6 videos (concurrent=3)
+2025-10-19 17:05:21,178 [INFO] 👻 Success: Unknown (timeout) (retries=0)
+2025-10-19 17:05:23,200 [INFO] 👻 Success: Unknown (timeout) (retries=0)
+2025-10-19 17:05:48,873 [INFO] 👻 Success: Unknown (timeout) (retries=0)
+2025-10-19 17:05:59,615 [INFO] 👻 Success: She's Bitchin Again - Rodney Carrington (retries=0)
+2025-10-19 17:06:09,248 [INFO] 👻 Success: Dancing With A Man | Rodney Carrington (retries=0)
+2025-10-19 17:06:09,259 [INFO] [JOB d2ee788f] Saved results to /data/data/com.termux/files/home/GhostTube/ghosttube/output/logs/job_d2ee788f-6cf9-4061-a561-e88dedfa676d_20251019_170609.json
+2025-10-19 17:59:24,780 [INFO] 👻 Search: 'This is Halloween cover songs' (max=50)
+2025-10-19 17:59:30,230 [INFO] yt-dlp returned 0 URLs
+2025-10-19 17:59:33,169 [INFO] 👻 Found 10 videos via DuckDuckGo
+2025-10-19 18:29:27,348 [INFO] 👻 Search: 'This is Halloween cover songs' (max=50)
+2025-10-19 18:29:32,625 [INFO] yt-dlp returned 0 URLs
+2025-10-19 18:29:35,708 [INFO] 👻 Found 10 videos via DuckDuckGo
+2025-10-19 18:31:15,123 [INFO] [JOB 12342984] Starting download of 10 videos (concurrent=10)
+2025-10-19 18:32:06,363 [INFO] [JOB 12342984] Saved results to /data/data/com.termux/files/home/GhostTube/ghosttube/output/logs/job_12342984-2318-4e74-86a8-c5fc64185307_20251019_183206.json
+2025-10-19 18:32:42,095 [INFO] 👻 Search: 'This is Halloween marilyn manson' (max=50)
+2025-10-19 18:32:46,822 [INFO] yt-dlp returned 0 URLs
+2025-10-19 18:32:49,189 [INFO] 👻 Found 10 videos via DuckDuckGo
+2025-10-19 18:34:30,372 [INFO] [JOB 04fc2169] Starting download of 10 videos (concurrent=10)
+2025-10-19 18:35:07,815 [INFO] 👻 Success: Marilyn Manson (Nightmare Before Christmas): This Is Halloween (Lyrics) (retries=0)
+2025-10-19 18:35:08,886 [INFO] 👻 Success: This Is Halloween (retries=0)
+2025-10-19 18:35:09,445 [INFO] 👻 Success: MARILYN MANSON :: This Is Halloween (retries=0)
+2025-10-19 18:35:27,487 [INFO] 👻 Success: This Is Halloween (retries=0)
+2025-10-19 18:35:43,990 [INFO] 👻 Success: This Is Halloween - Marilyn Manson w/lyrics (retries=0)
+2025-10-19 18:35:51,384 [INFO] 👻 Success: Marilyn Manson - This Is Halloween (Official Music Video #VEVO) (retries=0)
+2025-10-19 18:36:03,281 [INFO] 👻 Success: Marilyn Manson - This Is Halloween ( Official HQ ) (retries=0)
+2025-10-19 18:36:18,360 [WARNING] Title fetch timeout for https://www.youtube.com/watch?v=srmqqbpg4TA, retry 1/3
+2025-10-19 18:36:28,069 [INFO] 👻 Success: Marilyn Manson - This Is Halloween ( Official HQ ) (retries=0)
+2025-10-19 18:36:29,648 [INFO] 👻 Success: This is Halloween (Pop Version) (retries=0)
+2025-10-19 18:37:09,454 [INFO] 👻 Success: Marilyn Manson- This is Halloween (Nightmare Before Christmas) HD (retries=0)
+2025-10-19 18:37:09,459 [INFO] [JOB 04fc2169] Saved results to /data/data/com.termux/files/home/GhostTube/ghosttube/output/logs/job_04fc2169-153c-4128-9ecb-84b92ac7bba5_20251019_183709.json

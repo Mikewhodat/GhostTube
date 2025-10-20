@@ -1,0 +1,31 @@
+services:
+  ghosttube:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: ghosttube-10_v3
+    ports:
+      - 8011:8000
+    volumes:
+      - /media/mike/GhostTube/ghosttube_downloads1:/root/shared:rw
+    restart: unless-stopped
+    healthcheck:
+      test:
+        - CMD
+        - wget
+        - --no-verbose
+        - --tries=1
+        - --spider
+        - http://localhost:8000/status
+      interval: 30s
+      timeout: 10s
+      start_period: 40s
+      retries: 3
+    environment:
+      - PYTHONUNBUFFERED=1
+    logging:
+      driver: json-file
+      options:
+        max-size: 10m
+        max-file: "3"
+networks: {}
