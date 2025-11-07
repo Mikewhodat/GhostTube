@@ -1,0 +1,871 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GhostTube Tutorial</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <style>
+    details summary {
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1.5rem;
+      transition: background 0.3s;
+    }
+    details summary:hover {
+      filter: brightness(1.1);
+    }
+    details[open] summary i {
+      transform: rotate(90deg);
+    }
+  </style>
+</head>
+<body class="min-h-screen bg-gradient-to-br from-gray-900 via-purple-900 to-indigo-900 p-4 md:p-8 text-gray-200">
+  <div class="max-w-7xl mx-auto">
+    <div class="text-center mb-8">
+      <div class="flex items-center justify-center gap-4 mb-4">
+        <i data-lucide="book-open" class="w-16 h-16 text-purple-400"></i>
+        <h1 class="text-6xl font-bold text-white">GhostTube 👻</h1>
+      </div>
+      <h2 class="text-3xl text-purple-300 mb-2">Complete Architecture Tutorial</h2>
+      <p class="text-xl text-gray-400">Every technology, every function, every reason why</p>
+    </div>
+
+    <div class="flex flex-wrap gap-2 mb-8 bg-gray-800/50 p-2 rounded-xl justify-center">
+      <a href="#overview" class="px-4 py-2 rounded-lg font-medium transition bg-purple-600 text-white">Overview</a>
+      <a href="#layers" class="px-4 py-2 rounded-lg font-medium transition bg-gray-700 text-gray-300 hover:bg-purple-600 hover:text-white">7 Layers Architecture</a>
+    </div>
+
+    <section id="overview" class="space-y-6 mb-12">
+      <div class="bg-gradient-to-r from-purple-600/20 to-pink-600/20 border-2 border-purple-500/30 rounded-xl p-8">
+        <h2 class="text-3xl font-bold text-white mb-4">What Is GhostTube?</h2>
+        <p class="text-gray-200 text-lg mb-4">
+          Anonymous YouTube downloader routing all traffic through Tor network.
+        </p>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <div class="bg-black/30 rounded-lg p-4">
+            <h3 class="text-xl font-bold text-purple-300 mb-2">Frontend</h3>
+            <ul class="space-y-1 text-gray-300 text-sm">
+              <li>• HTML5 structure</li>
+              <li>• CSS3 + Tailwind styling</li>
+              <li>• Vanilla JavaScript</li>
+              <li>• Real-time updates</li>
+            </ul>
+          </div>
+          <div class="bg-black/30 rounded-lg p-4">
+            <h3 class="text-xl font-bold text-purple-300 mb-2">Backend</h3>
+            <ul class="space-y-1 text-gray-300 text-sm">
+              <li>• Python + FastAPI</li>
+              <li>• Concurrent downloads</li>
+              <li>• Tor integration</li>
+              <li>• Multi-method search</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="bg-gray-800/50 rounded-xl p-6 border border-purple-500/30">
+        <h2 class="text-3xl font-bold text-white mb-6 text-center">7-Layer Architecture</h2>
+        <p class="text-center text-gray-400 mb-4">Click a layer below to learn more.</p>
+        <div class="space-y-3">
+          <a href="#layer1" class="block bg-gradient-to-r from-red-600 to-orange-600 p-4 rounded-lg flex items-center gap-4 hover:brightness-110">
+            <div class="bg-white/20 rounded-full w-10 h-10 flex items-center justify-center font-bold text-white">1</div>
+            <div class="flex-1">
+              <h3 class="text-xl font-bold text-white">Presentation Layer</h3>
+              <p class="text-white/90 text-sm">FRONTEND (index.html)</p>
+            </div>
+            <i data-lucide="chevron-right" class="w-6 h-6 text-white"></i>
+          </a>
+          <a href="#layer2" class="block bg-gradient-to-r from-green-600 to-emerald-600 p-4 rounded-lg flex items-center gap-4 hover:brightness-110">
+            <div class="bg-white/20 rounded-full w-10 h-10 flex items-center justify-center font-bold text-white">2</div>
+            <div class="flex-1">
+              <h3 class="text-xl font-bold text-white">API Layer</h3>
+              <p class="text-white/90 text-sm">BACKEND (main.py)</p>
+            </div>
+            <i data-lucide="chevron-right" class="w-6 h-6 text-white"></i>
+          </a>
+          <a href="#layer3" class="block bg-gradient-to-r from-blue-600 to-cyan-600 p-4 rounded-lg flex items-center gap-4 hover:brightness-110">
+            <div class="bg-white/20 rounded-full w-10 h-10 flex items-center justify-center font-bold text-white">3</div>
+            <div class="flex-1">
+              <h3 class="text-xl font-bold text-white">Business Logic</h3>
+              <p class="text-white/90 text-sm">BACKEND (main.py)</p>
+            </div>
+            <i data-lucide="chevron-right" class="w-6 h-6 text-white"></i>
+          </a>
+          <a href="#layer4" class="block bg-gradient-to-r from-purple-600 to-pink-600 p-4 rounded-lg flex items-center gap-4 hover:brightness-110">
+            <div class="bg-white/20 rounded-full w-10 h-10 flex items-center justify-center font-bold text-white">4</div>
+            <div class="flex-1">
+              <h3 class="text-xl font-bold text-white">Integration Layer</h3>
+              <p class="text-white/90 text-sm">BACKEND (main.py)</p>
+            </div>
+            <i data-lucide="chevron-right" class="w-6 h-6 text-white"></i>
+          </a>
+          <a href="#layer5" class="block bg-gradient-to-r from-yellow-600 to-orange-600 p-4 rounded-lg flex items-center gap-4 hover:brightness-110">
+            <div class="bg-white/20 rounded-full w-10 h-10 flex items-center justify-center font-bold text-white">5</div>
+            <div class="flex-1">
+              <h3 class="text-xl font-bold text-white">Data Access</h3>
+              <p class="text-white/90 text-sm">BACKEND (main.py)</p>
+            </div>
+            <i data-lucide="chevron-right" class="w-6 h-6 text-white"></i>
+          </a>
+          <a href="#layer6" class="block bg-gradient-to-r from-indigo-600 to-violet-600 p-4 rounded-lg flex items-center gap-4 hover:brightness-110">
+            <div class="bg-white/20 rounded-full w-10 h-10 flex items-center justify-center font-bold text-white">6</div>
+            <div class="flex-1">
+              <h3 class="text-xl font-bold text-white">Infrastructure</h3>
+              <p class="text-white/90 text-sm">SYSTEM</p>
+            </div>
+            <i data-lucide="chevron-right" class="w-6 h-6 text-white"></i>
+          </a>
+          <a href="#layer7" class="block bg-gradient-to-r from-gray-600 to-slate-600 p-4 rounded-lg flex items-center gap-4 hover:brightness-110">
+            <div class="bg-white/20 rounded-full w-10 h-10 flex items-center justify-center font-bold text-white">7</div>
+            <div class="flex-1">
+              <h3 class="text-xl font-bold text-white">External Services</h3>
+              <p class="text-white/90 text-sm">INTERNET</p>
+            </div>
+            <i data-lucide="chevron-right" class="w-6 h-6 text-white"></i>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <section id="layers" class="space-y-4">
+      <details id="layer1" class="bg-gradient-to-r from-red-600 to-orange-600 rounded-xl shadow-2xl overflow-hidden">
+        <summary>
+          <div class="flex items-center gap-4">
+            <div class="bg-white/20 rounded-full w-12 h-12 flex items-center justify-center font-bold text-white text-xl">1</div>
+            <div class="text-left">
+              <h2 class="text-2xl font-bold text-white">Presentation Layer</h2>
+              <p class="text-white/90">FRONTEND (index.html)</p>
+            </div>
+          </div>
+          <i data-lucide="chevron-right" class="w-8 h-8 text-white transition-transform"></i>
+        </summary>
+        <div class="bg-black/20 p-6 space-y-6">
+          <div class="bg-yellow-500/20 border-l-4 border-yellow-500 rounded p-4">
+            <h3 class="text-lg font-bold text-yellow-300 mb-2 flex items-center gap-2">
+              <i data-lucide="lightbulb" class="w-5 h-5"></i>
+              Why This Layer
+            </h3>
+            <p class="text-white/90">Users need a visual interface to interact with the downloader. HTML provides structure, CSS makes it beautiful, and JavaScript makes it interactive.</p>
+          </div>
+          <div class="bg-white/10 rounded-lg p-5 space-y-4">
+            <div>
+              <h3 class="text-2xl font-bold text-white mb-1">HTML5</h3>
+              <p class="text-purple-200 italic mb-3">Standard markup language for web pages. Creates the skeleton/structure.</p>
+            </div>
+            <div class="bg-gray-900 rounded-lg p-4 overflow-x-auto">
+              <pre class="text-green-400 text-sm font-mono"><!-- Main container -->
+&lt;div class="container mx-auto px-4 py-8"&gt;
+  &lt;!-- Search input --&gt;
+  &lt;input id="search-input" type="text" 
+         placeholder="Search YouTube..."&gt;
+  
+  &lt;!-- Search button --&gt;
+  &lt;button onclick="handleSearch()"&gt;
+    Search YouTube
+  &lt;/button&gt;
+&lt;/div&gt;</pre>
+            </div>
+            <div>
+              <h4 class="text-sm font-bold text-purple-300 mb-2">Key Elements:</h4>
+              <div class="space-y-2">
+                <div class="flex items-start gap-2">
+                  <i data-lucide="zap" class="w-4 h-4 text-yellow-400 flex-shrink-0 mt-1"></i>
+                  <span class="text-white/90 text-sm">&lt;input id="search-input"&gt; - Where users type search queries</span>
+                </div>
+                <div class="flex items-start gap-2">
+                  <i data-lucide="zap" class="w-4 h-4 text-yellow-400 flex-shrink-0 mt-1"></i>
+                  <span class="text-white/90 text-sm">&lt;button onclick="handleSearch()"&gt; - Triggers search function</span>
+                </div>
+                <div class="flex items-start gap-2">
+                  <i data-lucide="zap" class="w-4 h-4 text-yellow-400 flex-shrink-0 mt-1"></i>
+                  <span class="text-white/90 text-sm">&lt;div id="search-results"&gt; - Container for video results</span>
+                </div>
+                <div class="flex items-start gap-2">
+                  <i data-lucide="zap" class="w-4 h-4 text-yellow-400 flex-shrink-0 mt-1"></i>
+                  <span class="text-white/90 text-sm">&lt;div id="jobs-list"&gt; - Shows active download jobs</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="bg-white/10 rounded-lg p-5 space-y-4">
+            <div>
+              <h3 class="text-2xl font-bold text-white mb-1">CSS3 + Tailwind</h3>
+              <p class="text-purple-200 italic mb-3">CSS provides custom animations and effects. Tailwind gives pre-built utility classes for rapid styling without writing CSS.</p>
+            </div>
+            <div class="bg-gray-900 rounded-lg p-4 overflow-x-auto">
+              <pre class="text-green-400 text-sm font-mono">/* Custom animation */
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+.floating {
+  animation: float 3s ease-in-out infinite;
+}
+
+/* Tailwind utilities */
+&lt;div class="bg-spooky-dark rounded-xl p-6 
+            hover:scale-105 transition-all"&gt;
+&lt;/div&gt;</pre>
+            </div>
+            <div>
+              <h4 class="text-sm font-bold text-purple-300 mb-2">Key Elements:</h4>
+              <div class="space-y-2">
+                <div class="flex items-start gap-2">
+                  <i data-lucide="zap" class="w-4 h-4 text-yellow-400 flex-shrink-0 mt-1"></i>
+                  <span class="text-white/90 text-sm">Custom @keyframes - Smooth floating ghost animation</span>
+                </div>
+                <div class="flex items-start gap-2">
+                  <i data-lucide="zap" class="w-4 h-4 text-yellow-400 flex-shrink-0 mt-1"></i>
+                  <span class="text-white/90 text-sm">.glow class - Text shadow effects for spooky look</span>
+                </div>
+                <div class="flex items-start gap-2">
+                  <i data-lucide="zap" class="w-4 h-4 text-yellow-400 flex-shrink-0 mt-1"></i>
+                  <span class="text-white/90 text-sm">Tailwind utilities - bg-*, rounded-*, flex, grid</span>
+                </div>
+                <div class="flex items-start gap-2">
+                  <i data-lucide="zap" class="w-4 h-4 text-yellow-400 flex-shrink-0 mt-1"></i>
+                  <span class="text-white/90 text-sm">Responsive design - Works on mobile and desktop</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="bg-white/10 rounded-lg p-5 space-y-4">
+            <div>
+              <h3 class="text-2xl font-bold text-white mb-1">Vanilla JavaScript</h3>
+              <p class="text-purple-200 italic mb-3">Makes the page dynamic. Handles user interactions, updates the UI in real-time, and communicates with the backend.</p>
+            </div>
+            <div class="bg-gray-900 rounded-lg p-4 overflow-x-auto">
+              <pre class="text-green-400 text-sm font-mono">// Global state management
+let selectedVideos = new Set();
+let jobs = {};
+
+// API communication
+async function handleSearch() {
+  const query = document.getElementById('search-input').value;
+  
+  const response = await fetch('/api/search', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ query, max_results: 50 })
+  });
+  
+  const data = await response.json();
+  displaySearchResults(data.results);
+}</pre>
+            </div>
+            <div>
+              <h4 class="text-sm font-bold text-purple-300 mb-2">Key Elements:</h4>
+              <div class="space-y-2">
+                <div class="flex items-start gap-2">
+                  <i data-lucide="zap" class="w-4 h-4 text-yellow-400 flex-shrink-0 mt-1"></i>
+                  <span class="text-white/90 text-sm">State: selectedVideos (Set), jobs (Object) - Track selections</span>
+                </div>
+                <div class="flex items-start gap-2">
+                  <i data-lucide="zap" class="w-4 h-4 text-yellow-400 flex-shrink-0 mt-1"></i>
+                  <span class="text-white/90 text-sm">fetch() API - Sends HTTP requests to backend</span>
+                </div>
+                <div class="flex items-start gap-2">
+                  <i data-lucide="zap" class="w-4 h-4 text-yellow-400 flex-shrink-0 mt-1"></i>
+                  <span class="text-white/90 text-sm">DOM updates - innerHTML, appendChild() modify page</span>
+                </div>
+                <div class="flex items-start gap-2">
+                  <i data-lucide="zap" class="w-4 h-4 text-yellow-400 flex-shrink-0 mt-1"></i>
+                  <span class="text-white/90 text-sm">Event handlers - onclick, onchange trigger functions</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </details>
+      <details id="layer2" class="bg-gradient-to-r from-green-600 to-emerald-600 rounded-xl shadow-2xl overflow-hidden">
+        <summary>
+          <div class="flex items-center gap-4">
+            <div class="bg-white/20 rounded-full w-12 h-12 flex items-center justify-center font-bold text-white text-xl">2</div>
+            <div class="text-left">
+              <h2 class="text-2xl font-bold text-white">API Layer</h2>
+              <p class="text-white/90">BACKEND (main.py)</p>
+            </div>
+          </div>
+          <i data-lucide="chevron-right" class="w-8 h-8 text-white transition-transform"></i>
+        </summary>
+        <div class="bg-black/20 p-6 space-y-6">
+          <div class="bg-yellow-500/20 border-l-4 border-yellow-500 rounded p-4">
+            <h3 class="text-lg font-bold text-yellow-300 mb-2 flex items-center gap-2">
+              <i data-lucide="lightbulb" class="w-5 h-5"></i>
+              Why This Layer
+            </h3>
+            <p class="text-white/90">Frontend and backend speak different languages. The API layer translates HTTP requests into Python function calls and vice versa.</p>
+          </div>
+          <div class="bg-white/10 rounded-lg p-5 space-y-4">
+            <div>
+              <h3 class="text-2xl font-bold text-white mb-1">FastAPI</h3>
+              <p class="text-purple-200 italic mb-3">Modern Python web framework. Fast, automatic validation, auto-generates API docs, supports async operations.</p>
+            </div>
+            <div class="bg-gray-900 rounded-lg p-4 overflow-x-auto">
+              <pre class="text-green-400 text-sm font-mono">from fastapi import FastAPI
+
+app = FastAPI(title="👻Ghosttube")
+
+@app.post("/api/search")
+async def api_search(req: SearchRequest):
+    results = search_youtube(req.query)
+    return {"results": results}</pre>
+            </div>
+            <div>
+              <h4 class="text-sm font-bold text-purple-300 mb-2">Key Elements:</h4>
+              <div class="space-y-2">
+                <div class="flex items-start gap-2">
+                  <i data-lucide="zap" class="w-4 h-4 text-yellow-400 flex-shrink-0 mt-1"></i>
+                  <span class="text-white/90 text-sm">@app.post() decorator creates endpoint</span>
+                </div>
+                <div class="flex items-start gap-2">
+                  <i data-lucide="zap" class="w-4 h-4 text-yellow-400 flex-shrink-0 mt-1"></i>
+                  <span class="text-white/90 text-sm">Automatic JSON serialization</span>
+                </div>
+                <div class="flex items-start gap-2">
+                  <i data-lucide="zap" class="w-4 h-4 text-yellow-400 flex-shrink-0 mt-1"></i>
+                  <span class="text-white/90 text-sm">async def for non-blocking</span>
+                </div>
+                <div class="flex items-start gap-2">
+                  <i data-lucide="zap" class="w-4 h-4 text-yellow-400 flex-shrink-0 mt-1"></i>
+                  <span class="text-white/90 text-sm">CORS middleware allows frontend access</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="bg-white/10 rounded-lg p-5 space-y-4">
+            <div>
+              <h3 class="text-2xl font-bold text-white mb-1">Pydantic</h3>
+              <p class="text-purple-200 italic mb-3">Validates incoming data automatically.</p>
+            </div>
+            <div class="bg-gray-900 rounded-lg p-4 overflow-x-auto">
+              <pre class="text-green-400 text-sm font-mono">class SearchRequest(BaseModel):
+    query: str = Field(..., min_length=1)
+    max_results: int = Field(50, ge=1, le=100)</pre>
+            </div>
+            <div>
+              <h4 class="text-sm font-bold text-purple-300 mb-2">Key Elements:</h4>
+              <div class="space-y-2">
+                <div class="flex items-start gap-2">
+                  <i data-lucide="zap" class="w-4 h-4 text-yellow-400 flex-shrink-0 mt-1"></i>
+                  <span class="text-white/90 text-sm">Field() enforces constraints</span>
+                </div>
+                <div class="flex items-start gap-2">
+                  <i data-lucide="zap" class="w-4 h-4 text-yellow-400 flex-shrink-0 mt-1"></i>
+                  <span class="text-white/90 text-sm">Automatic type conversion</span>
+                </div>
+                <div class="flex items-start gap-2">
+                  <i data-lucide="zap" class="w-4 h-4 text-yellow-400 flex-shrink-0 mt-1"></i>
+                  <span class="text-white/90 text-sm">Clear error messages</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </details>
+      <details id="layer3" class="bg-gradient-to-r from-blue-600 to-cyan-600 rounded-xl shadow-2xl overflow-hidden">
+        <summary>
+          <div class="flex items-center gap-4">
+            <div class="bg-white/20 rounded-full w-12 h-12 flex items-center justify-center font-bold text-white text-xl">3</div>
+            <div class="text-left">
+              <h2 class="text-2xl font-bold text-white">Business Logic</h2>
+              <p class="text-white/90">BACKEND (main.py)</p>
+            </div>
+          </div>
+          <i data-lucide="chevron-right" class="w-8 h-8 text-white transition-transform"></i>
+        </summary>
+        <div class="bg-black/20 p-6 space-y-6">
+          <div class="bg-yellow-500/20 border-l-4 border-yellow-500 rounded p-4">
+            <h3 class="text-lg font-bold text-yellow-300 mb-2 flex items-center gap-2">
+              <i data-lucide="lightbulb" class="w-5 h-5"></i>
+              Why This Layer
+            </h3>
+            <p class="text-white/90">The brain - orchestrates searches, manages downloads, handles retries.</p>
+          </div>
+          <div class="bg-white/10 rounded-lg p-5 space-y-4">
+            <div>
+              <h3 class="text-2xl font-bold text-white mb-1">Job Management</h3>
+              <p class="text-purple-200 italic mb-3">Track multiple simultaneous downloads.</p>
+            </div>
+            <div class="bg-gray-900 rounded-lg p-4 overflow-x-auto">
+              <pre class="text-green-400 text-sm font-mono">@dataclass
+class JobState:
+    job_id: str
+    status: str
+    progress: int = 0
+    
+jobs: Dict[str, JobState] = {}</pre>
+            </div>
+            <div>
+              <h4 class="text-sm font-bold text-purple-300 mb-2">Key Elements:</h4>
+              <div class="space-y-2">
+                <div class="flex items-start gap-2">
+                  <i data-lucide="zap" class="w-4 h-4 text-yellow-400 flex-shrink-0 mt-1"></i>
+                  <span class="text-white/90 text-sm">@dataclass auto-generates methods</span>
+                </div>
+                <div class="flex items-start gap-2">
+                  <i data-lucide="zap" class="w-4 h-4 text-yellow-400 flex-shrink-0 mt-1"></i>
+                  <span class="text-white/90 text-sm">Thread-safe with Lock()</span>
+                </div>
+                <div class="flex items-start gap-2">
+                  <i data-lucide="zap" class="w-4 h-4 text-yellow-400 flex-shrink-0 mt-1"></i>
+                  <span class="text-white/90 text-sm">In-memory job storage</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="bg-white/10 rounded-lg p-5 space-y-4">
+            <div>
+              <h3 class="text-2xl font-bold text-white mb-1">Multi-Method Search</h3>
+              <p class="text-purple-200 italic mb-3">Fallback when one method fails.</p>
+            </div>
+            <div class="bg-gray-900 rounded-lg p-4 overflow-x-auto">
+              <pre class="text-green-400 text-sm font-mono">def search_youtube(query, max_results):
+    methods = [
+        ('yt-dlp', _search_ytdlp),
+        ('DuckDuckGo', _search_duckduckgo)
+    ]
+    for name, method in methods:
+        try:
+            return method(query, max_results)
+        except:
+            continue</pre>
+            </div>
+            <div>
+              <h4 class="text-sm font-bold text-purple-300 mb-2">Key Elements:</h4>
+              <div class="space-y-2">
+                <div class="flex items-start gap-2">
+                  <i data-lucide="zap" class="w-4 h-4 text-yellow-400 flex-shrink-0 mt-1"></i>
+                  <span class="text-white/90 text-sm">Ordered fallback list</span>
+                </div>
+                <div class="flex items-start gap-2">
+                  <i data-lucide="zap" class="w-4 h-4 text-yellow-400 flex-shrink-0 mt-1"></i>
+                  <span class="text-white/90 text-sm">Try/except with continue</span>
+                </div>
+                <div class="flex items-start gap-2">
+                  <i data-lucide="zap" class="w-4 h-4 text-yellow-400 flex-shrink-0 mt-1"></i>
+                  <span class="text-white/90 text-sm">Returns first success</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="bg-white/10 rounded-lg p-5 space-y-4">
+            <div>
+              <h3 class="text-2xl font-bold text-white mb-1">Concurrent Downloads</h3>
+              <p class="text-purple-200 italic mb-3">Download multiple videos simultaneously.</p>
+            </div>
+            <div class="bg-gray-900 rounded-lg p-4 overflow-x-auto">
+              <pre class="text-green-400 text-sm font-mono">with ThreadPoolExecutor(max_workers=3) as executor:
+    futures = {}
+    for url in results:
+        future = executor.submit(download_video, url)
+        futures[future] = url
+    
+    for future in as_completed(futures):
+        result = future.result()</pre>
+            </div>
+            <div>
+              <h4 class="text-sm font-bold text-purple-300 mb-2">Key Elements:</h4>
+              <div class="space-y-2">
+                <div class="flex items-start gap-2">
+                  <i data-lucide="zap" class="w-4 h-4 text-yellow-400 flex-shrink-0 mt-1"></i>
+                  <span class="text-white/90 text-sm">ThreadPoolExecutor manages threads</span>
+                </div>
+                <div class="flex items-start gap-2">
+                  <i data-lucide="zap" class="w-4 h-4 text-yellow-400 flex-shrink-0 mt-1"></i>
+                  <span class="text-white/90 text-sm">executor.submit() queues work</span>
+                </div>
+                <div class="flex items-start gap-2">
+                  <i data-lucide="zap" class="w-4 h-4 text-yellow-400 flex-shrink-0 mt-1"></i>
+                  <span class="text-white/90 text-sm">as_completed() processes results</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </details>
+      <details id="layer4" class="bg-gradient-to-r from-purple-600 to-pink-600 rounded-xl shadow-2xl overflow-hidden">
+        <summary>
+          <div class="flex items-center gap-4">
+            <div class="bg-white/20 rounded-full w-12 h-12 flex items-center justify-center font-bold text-white text-xl">4</div>
+            <div class="text-left">
+              <h2 class="text-2xl font-bold text-white">Integration Layer</h2>
+              <p class="text-white/90">BACKEND (main.py)</p>
+            </div>
+          </div>
+          <i data-lucide="chevron-right" class="w-8 h-8 text-white transition-transform"></i>
+        </summary>
+        <div class="bg-black/20 p-6 space-y-6">
+          <div class="bg-yellow-500/20 border-l-4 border-yellow-500 rounded p-4">
+            <h3 class="text-lg font-bold text-yellow-300 mb-2 flex items-center gap-2">
+              <i data-lucide="lightbulb" class="w-5 h-5"></i>
+              Why This Layer
+            </h3>
+            <p class="text-white/90">Adapts external tools into consistent Python interfaces.</p>
+          </div>
+          <div class="bg-white/10 rounded-lg p-5 space-y-4">
+            <div>
+              <h3 class="text-2xl font-bold text-white mb-1">yt-dlp via subprocess</h3>
+              <p class="text-purple-200 italic mb-3">yt-dlp is CLI tool, subprocess executes it.</p>
+            </div>
+            <div class="bg-gray-900 rounded-lg p-4 overflow-x-auto">
+              <pre class="text-green-400 text-sm font-mono">cmd = [sys.executable, '-m', 'yt_dlp',
+       '--proxy', TOR_PROXY,
+       '-x', '--audio-format', 'mp3',
+       url]
+
+subprocess.run(cmd, check=True, timeout=300)</pre>
+            </div>
+            <div>
+              <h4 class="text-sm font-bold text-purple-300 mb-2">Key Elements:</h4>
+              <div class="space-y-2">
+                <div class="flex items-start gap-2">
+                  <i data-lucide="zap" class="w-4 h-4 text-yellow-400 flex-shrink-0 mt-1"></i>
+                  <span class="text-white/90 text-sm">subprocess.run() executes command</span>
+                </div>
+                <div class="flex items-start gap-2">
+                  <i data-lucide="zap" class="w-4 h-4 text-yellow-400 flex-shrink-0 mt-1"></i>
+                  <span class="text-white/90 text-sm">capture_output=True gets stdout</span>
+                </div>
+                <div class="flex items-start gap-2">
+                  <i data-lucide="zap" class="w-4 h-4 text-yellow-400 flex-shrink-0 mt-1"></i>
+                  <span class="text-white/90 text-sm">timeout prevents hanging</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="bg-white/10 rounded-lg p-5 space-y-4">
+            <div>
+              <h3 class="text-2xl font-bold text-white mb-1">Tor Network (stem)</h3>
+              <p class="text-purple-200 italic mb-3">Control Tor daemon programmatically.</p>
+            </div>
+            <div class="bg-gray-900 rounded-lg p-4 overflow-x-auto">
+              <pre class="text-green-400 text-sm font-mono">with Controller.from_port(port=9051) as ctrl:
+    ctrl.authenticate()
+    ctrl.signal(Signal.NEWNYM)
+
+requests.get(url, proxies=PROXIES)</pre>
+            </div>
+            <div>
+              <h4 class="text-sm font-bold text-purple-300 mb-2">Key Elements:</h4>
+              <div class="space-y-2">
+                <div class="flex items-start gap-2">
+                  <i data-lucide="zap" class="w-4 h-4 text-yellow-400 flex-shrink-0 mt-1"></i>
+                  <span class="text-white/90 text-sm">Signal.NEWNYM rotates circuit</span>
+                </div>
+                <div class="flex items-start gap-2">
+                  <i data-lucide="zap" class="w-4 h-4 text-yellow-400 flex-shrink-0 mt-1"></i>
+                  <span class="text-white/90 text-sm">SOCKS5 proxy on port 9050</span>
+                </div>
+                <div class="flex items-start gap-2">
+                  <i data-lucide="zap" class="w-4 h-4 text-yellow-400 flex-shrink-0 mt-1"></i>
+                  <span class="text-white/90 text-sm">All requests proxied</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </details>
+      <details id="layer5" class="bg-gradient-to-r from-yellow-600 to-orange-600 rounded-xl shadow-2xl overflow-hidden">
+        <summary>
+          <div class="flex items-center gap-4">
+            <div class="bg-white/20 rounded-full w-12 h-12 flex items-center justify-center font-bold text-white text-xl">5</div>
+            <div class="text-left">
+              <h2 class="text-2xl font-bold text-white">Data Access</h2>
+              <p class="text-white/90">BACKEND (main.py)</p>
+            </div>
+          </div>
+          <i data-lucide="chevron-right" class="w-8 h-8 text-white transition-transform"></i>
+        </summary>
+        <div class="bg-black/20 p-6 space-y-6">
+          <div class="bg-yellow-500/20 border-l-4 border-yellow-500 rounded p-4">
+            <h3 class="text-lg font-bold text-yellow-300 mb-2 flex items-center gap-2">
+              <i data-lucide="lightbulb" class="w-5 h-5"></i>
+              Why This Layer
+            </h3>
+            <p class="text-white/90">Organized file storage and state management.</p>
+          </div>
+          <div class="bg-white/10 rounded-lg p-5 space-y-4">
+            <div>
+              <h3 class="text-2xl font-bold text-white mb-1">File System (pathlib)</h3>
+              <p class="text-purple-200 italic mb-3">Modern file handling.</p>
+            </div>
+            <div class="bg-gray-900 rounded-lg p-4 overflow-x-auto">
+              <pre class="text-green-400 text-sm font-mono">OUTPUT_AUDIO = Path('output/audio')
+OUTPUT_AUDIO.mkdir(parents=True, exist_ok=True)
+
+size_mb = path.stat().st_size / (1024*1024)</pre>
+            </div>
+            <div>
+              <h4 class="text-sm font-bold text-purple-300 mb-2">Key Elements:</h4>
+              <div class="space-y-2">
+                <div class="flex items-start gap-2">
+                  <i data-lucide="zap" class="w-4 h-4 text-yellow-400 flex-shrink-0 mt-1"></i>
+                  <span class="text-white/90 text-sm">mkdir() creates directories</span>
+                </div>
+                <div class="flex items-start gap-2">
+                  <i data-lucide="zap" class="w-4 h-4 text-yellow-400 flex-shrink-0 mt-1"></i>
+                  <span class="text-white/90 text-sm">glob() iterates files</span>
+                </div>
+                <div class="flex items-start gap-2">
+                  <i data-lucide="zap" class="w-4 h-4 text-yellow-400 flex-shrink-0 mt-1"></i>
+                  <span class="text-white/90 text-sm">Cross-platform paths</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="bg-white/10 rounded-lg p-5 space-y-4">
+            <div>
+              <h3 class="text-2xl font-bold text-white mb-1">JSON Logging</h3>
+              <p class="text-purple-200 italic mb-3">Structured job results.</p>
+            </div>
+            <div class="bg-gray-900 rounded-lg p-4 overflow-x-auto">
+              <pre class="text-green-400 text-sm font-mono">with open(log_file, 'w') as f:
+    json.dump({
+        'job_id': job_id,
+        'results': [asdict(r) for r in results]
+    }, f, indent=2)</pre>
+            </div>
+            <div>
+              <h4 class="text-sm font-bold text-purple-300 mb-2">Key Elements:</h4>
+              <div class="space-y-2">
+                <div class="flex items-start gap-2">
+                  <i data-lucide="zap" class="w-4 h-4 text-yellow-400 flex-shrink-0 mt-1"></i>
+                  <span class="text-white/90 text-sm">asdict() converts dataclass</span>
+                </div>
+                <div class="flex items-start gap-2">
+                  <i data-lucide="zap" class="w-4 h-4 text-yellow-400 flex-shrink-0 mt-1"></i>
+                  <span class="text-white/90 text-sm">Pretty-printed JSON</span>
+                </div>
+                <div class="flex items-start gap-2">
+                  <i data-lucide="zap" class="w-4 h-4 text-yellow-400 flex-shrink-0 mt-1"></i>
+                  <span class="text-white/90 text-sm">Persistent audit trail</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </details>
+      <details id="layer6" class="bg-gradient-to-r from-indigo-600 to-violet-600 rounded-xl shadow-2xl overflow-hidden">
+        <summary>
+          <div class="flex items-center gap-4">
+            <div class="bg-white/20 rounded-full w-12 h-12 flex items-center justify-center font-bold text-white text-xl">6</div>
+            <div class="text-left">
+              <h2 class="text-2xl font-bold text-white">Infrastructure</h2>
+              <p class="text-white/90">SYSTEM</p>
+            </div>
+          </div>
+          <i data-lucide="chevron-right" class="w-8 h-8 text-white transition-transform"></i>
+        </summary>
+        <div class="bg-black/20 p-6 space-y-6">
+          <div class="bg-yellow-500/20 border-l-4 border-yellow-500 rounded p-4">
+            <h3 class="text-lg font-bold text-yellow-300 mb-2 flex items-center gap-2">
+              <i data-lucide="lightbulb" class="w-5 h-5"></i>
+              Why This Layer
+            </h3>
+            <p class="text-white/90">Foundation that everything runs on.</p>
+          </div>
+          <div class="bg-white/10 rounded-lg p-5 space-y-4">
+            <div>
+              <h3 class="text-2xl font-bold text-white mb-1">Python 3.8+ Runtime</h3>
+              <p class="text-purple-200 italic mb-3">Executes code, manages memory.</p>
+            </div>
+            <div class="bg-gray-900 rounded-lg p-4 overflow-x-auto">
+              <pre class="text-green-400 text-sm font-mono">if sys.version_info &lt; (3, 8):
+    sys.exit(1)
+
+python3 main.py</pre>
+            </div>
+            <div>
+              <h4 class="text-sm font-bold text-purple-300 mb-2">Key Elements:</h4>
+              <div class="space-y-2">
+                <div class="flex items-start gap-2">
+                  <i data-lucide="zap" class="w-4 h-4 text-yellow-400 flex-shrink-0 mt-1"></i>
+                  <span class="text-white/90 text-sm">Version checking</span>
+                </div>
+                <div class="flex items-start gap-2">
+                  <i data-lucide="zap" class="w-4 h-4 text-yellow-400 flex-shrink-0 mt-1"></i>
+                  <span class="text-white/90 text-sm">Automatic memory management</span>
+                </div>
+                <div class="flex items-start gap-2">
+                  <i data-lucide="zap" class="w-4 h-4 text-yellow-400 flex-shrink-0 mt-1"></i>
+                  <span class="text-white/90 text-sm">Thread scheduling</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="bg-white/10 rounded-lg p-5 space-y-4">
+            <div>
+              <h3 class="text-2xl font-bold text-white mb-1">Tor Daemon</h3>
+              <p class="text-purple-200 italic mb-3">Routes traffic for anonymity.</p>
+            </div>
+            <div class="bg-gray-900 rounded-lg p-4 overflow-x-auto">
+              <pre class="text-green-400 text-sm font-mono"># torrc config
+SOCKSPort 9050
+ControlPort 9051
+
+sudo systemctl start tor</pre>
+            </div>
+            <div>
+              <h4 class="text-sm font-bold text-purple-300 mb-2">Key Elements:</h4>
+              <div class="space-y-2">
+                <div class="flex items-start gap-2">
+                  <i data-lucide="zap" class="w-4 h-4 text-yellow-400 flex-shrink-0 mt-1"></i>
+                  <span class="text-white/90 text-sm">SOCKS5 proxy port 9050</span>
+                </div>
+                <div class="flex items-start gap-2">
+                  <i data-lucide="zap" class="w-4 h-4 text-yellow-400 flex-shrink-0 mt-1"></i>
+                  <span class="text-white/90 text-sm">Control port 9051</span>
+                </div>
+                <div class="flex items-start gap-2">
+                  <i data-lucide="zap" class="w-4 h-4 text-yellow-400 flex-shrink-0 mt-1"></i>
+                  <span class="text-white/90 text-sm">Onion routing</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="bg-white/10 rounded-lg p-5 space-y-4">
+            <div>
+              <h3 class="text-2xl font-bold text-white mb-1">Uvicorn Server</h3>
+              <p class="text-purple-200 italic mb-3">Production web server.</p>
+            </div>
+            <div class="bg-gray-900 rounded-lg p-4 overflow-x-auto">
+              <pre class="text-green-400 text-sm font-mono">uvicorn.run(app, host="0.0.0.0", port=8000)</pre>
+            </div>
+            <div>
+              <h4 class="text-sm font-bold text-purple-300 mb-2">Key Elements:</h4>
+              <div class="space-y-2">
+                <div class="flex items-start gap-2">
+                  <i data-lucide="zap" class="w-4 h-4 text-yellow-400 flex-shrink-0 mt-1"></i>
+                  <span class="text-white/90 text-sm">ASGI server</span>
+                </div>
+                <div class="flex items-start gap-2">
+                  <i data-lucide="zap" class="w-4 h-4 text-yellow-400 flex-shrink-0 mt-1"></i>
+                  <span class="text-white/90 text-sm">Async support</span>
+                </div>
+                <div class="flex items-start gap-2">
+                  <i data-lucide="zap" class="w-4 h-4 text-yellow-400 flex-shrink-0 mt-1"></i>
+                  <span class="text-white/90 text-sm">Production-ready</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </details>
+      <details id="layer7" class="bg-gradient-to-r from-gray-600 to-slate-600 rounded-xl shadow-2xl overflow-hidden">
+        <summary>
+          <div class="flex items-center gap-4">
+            <div class="bg-white/20 rounded-full w-12 h-12 flex items-center justify-center font-bold text-white text-xl">7</div>
+            <div class="text-left">
+              <h2 class="text-2xl font-bold text-white">External Services</h2>
+              <p class="text-white/90">INTERNET</p>
+            </div>
+          </div>
+          <i data-lucide="chevron-right" class="w-8 h-8 text-white transition-transform"></i>
+        </summary>
+        <div class="bg-black/20 p-6 space-y-6">
+          <div class="bg-yellow-500/20 border-l-4 border-yellow-500 rounded p-4">
+            <h3 class="text-lg font-bold text-yellow-300 mb-2 flex items-center gap-2">
+              <i data-lucide="lightbulb" class="w-5 h-5"></i>
+              Why This Layer
+            </h3>
+            <p class="text-white/90">Third-party services we depend on.</p>
+          </div>
+          <div class="bg-white/10 rounded-lg p-5 space-y-4">
+            <div>
+              <h3 class="text-2xl font-bold text-white mb-1">YouTube</h3>
+              <p class="text-purple-200 italic mb-3">Source of video content.</p>
+            </div>
+            <div class="bg-gray-900 rounded-lg p-4 overflow-x-auto">
+              <pre class="text-green-400 text-sm font-mono"># Accessed via yt-dlp
+subprocess.run(['yt_dlp', video_url])
+
+# Or direct scraping
+r = requests.get('youtube.com/results?q=...')</pre>
+            </div>
+            <div>
+              <h4 class="text-sm font-bold text-purple-300 mb-2">Key Elements:</h4>
+              <div class="space-y-2">
+                <div class="flex items-start gap-2">
+                  <i data-lucide="zap" class="w-4 h-4 text-yellow-400 flex-shrink-0 mt-1"></i>
+                  <span class="text-white/90 text-sm">Video streaming</span>
+                </div>
+                <div class="flex items-start gap-2">
+                  <i data-lucide="zap" class="w-4 h-4 text-yellow-400 flex-shrink-0 mt-1"></i>
+                  <span class="text-white/90 text-sm">Rate limiting (429)</span>
+                </div>
+                <div class="flex items-start gap-2">
+                  <i data-lucide="zap" class="w-4 h-4 text-yellow-400 flex-shrink-0 mt-1"></i>
+                  <span class="text-white/90 text-sm">Bot detection</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="bg-white/10 rounded-lg p-5 space-y-4">
+            <div>
+              <h3 class="text-2xl font-bold text-white mb-1">Search Engines</h3>
+              <p class="text-purple-200 italic mb-3">Fallback search methods.</p>
+            </div>
+            <div class="bg-gray-900 rounded-lg p-4 overflow-x-auto">
+              <pre class="text-green-400 text-sm font-mono">url = f"duckduckgo.com/html/?q={query}+site:youtube.com"
+r = requests.get(url, proxies=PROXIES)</pre>
+            </div>
+            <div>
+              <h4 class="text-sm font-bold text-purple-300 mb-2">Key Elements:</h4>
+              <div class="space-y-2">
+                <div class="flex items-start gap-2">
+                  <i data-lucide="zap" class="w-4 h-4 text-yellow-400 flex-shrink-0 mt-1"></i>
+                  <span class="text-white/90 text-sm">HTML scraping</span>
+                </div>
+                <div class="flex items-start gap-2">
+                  <i data-lucide="zap" class="w-4 h-4 text-yellow-400 flex-shrink-0 mt-1"></i>
+                  <span class="text-white/90 text-sm">Less aggressive limits</span>
+                </div>
+                <div class="flex items-start gap-2">
+                  <i data-lucide="zap" class="w-4 h-4 text-yellow-400 flex-shrink-0 mt-1"></i>
+                  <span class="text-white/90 text-sm">Different IP reputation</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="bg-white/10 rounded-lg p-5 space-y-4">
+            <div>
+              <h3 class="text-2xl font-bold text-white mb-1">CDNs</h3>
+              <p class="text-purple-200 italic mb-3">Fast library delivery.</p>
+            </div>
+            <div class="bg-gray-900 rounded-lg p-4 overflow-x-auto">
+              <pre class="text-green-400 text-sm font-mono">&lt;script src="https://cdn.tailwindcss.com"&gt;&lt;/script&gt;
+&lt;script src="https://unpkg.com/feather-icons"&gt;&lt;/script&gt;</pre>
+            </div>
+            <div>
+              <h4 class="text-sm font-bold text-purple-300 mb-2">Key Elements:</h4>
+              <div class="space-y-2">
+                <div class="flex items-start gap-2">
+                  <i data-lucide="zap" class="w-4 h-4 text-yellow-400 flex-shrink-0 mt-1"></i>
+                  <span class="text-white/90 text-sm">Edge caching</span>
+                </div>
+                <div class="flex items-start gap-2">
+                  <i data-lucide="zap" class="w-4 h-4 text-yellow-400 flex-shrink-0 mt-1"></i>
+                  <span class="text-white/90 text-sm">Global distribution</span>
+                </div>
+                <div class="flex items-start gap-2">
+                  <i data-lucide="zap" class="w-4 h-4 text-yellow-400 flex-shrink-0 mt-1"></i>
+                  <span class="text-white/90 text-sm">No hosting costs</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </details>
+    </section>
+  </div>
+  <script>
+    lucide.createIcons();
+  </script>
+</body>
+</html>

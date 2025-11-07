@@ -1,0 +1,772 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GhostTube V4 👻</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://unpkg.com/feather-icons"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            autumn: {
+              primary: '#D2691E',
+              secondary: '#8B4513',
+              accent: '#FF8C00',
+              gold: '#DAA520',
+              crimson: '#DC143C',
+              forest: '#228B22',
+              dark: '#2C1810',
+              light: '#FFF8DC'
+            }
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    @keyframes float {
+      0%, 100% { transform: translateY(0) rotate(0deg); }
+      50% { transform: translateY(-20px) rotate(5deg); }
+    }
+    .floating {
+      animation: float 4s ease-in-out infinite;
+    }
+    @keyframes fall {
+      0% { transform: translateY(-100px) rotate(0deg); opacity: 1; }
+      100% { transform: translateY(100vh) rotate(360deg); opacity: 0; }
+    }
+    .falling-leaf {
+      animation: fall linear infinite;
+      position: absolute;
+      font-size: 2rem;
+    }
+    .falling-leaf:nth-child(1) { left: 5%; animation-duration: 8s; animation-delay: 0s; }
+    .falling-leaf:nth-child(2) { left: 15%; animation-duration: 10s; animation-delay: 2s; }
+    .falling-leaf:nth-child(3) { left: 25%; animation-duration: 9s; animation-delay: 4s; }
+    .falling-leaf:nth-child(4) { left: 35%; animation-duration: 11s; animation-delay: 1s; }
+    .falling-leaf:nth-child(5) { left: 45%; animation-duration: 7s; animation-delay: 3s; }
+    .falling-leaf:nth-child(6) { left: 55%; animation-duration: 9s; animation-delay: 5s; }
+    .falling-leaf:nth-child(7) { left: 65%; animation-duration: 10s; animation-delay: 1.5s; }
+    .falling-leaf:nth-child(8) { left: 75%; animation-duration: 8s; animation-delay: 2.5s; }
+    .falling-leaf:nth-child(9) { left: 85%; animation-duration: 11s; animation-delay: 4.5s; }
+    .falling-leaf:nth-child(10) { left: 95%; animation-duration: 7s; animation-delay: 0.5s; }
+    .falling-leaf:nth-child(11) { left: 10%; animation-duration: 9s; animation-delay: 3.5s; }
+    .falling-leaf:nth-child(12) { left: 20%; animation-duration: 8s; animation-delay: 1.8s; }
+    .falling-leaf:nth-child(13) { left: 30%; animation-duration: 10s; animation-delay: 4.2s; }
+    .falling-leaf:nth-child(14) { left: 40%; animation-duration: 7s; animation-delay: 2.2s; }
+    .falling-leaf:nth-child(15) { left: 50%; animation-duration: 11s; animation-delay: 5.5s; }
+    .falling-leaf:nth-child(16) { left: 60%; animation-duration: 8s; animation-delay: 3.8s; }
+    .falling-leaf:nth-child(17) { left: 70%; animation-duration: 9s; animation-delay: 1.2s; }
+    .falling-leaf:nth-child(18) { left: 80%; animation-duration: 10s; animation-delay: 4.8s; }
+    .falling-leaf:nth-child(19) { left: 90%; animation-duration: 7s; animation-delay: 2.8s; }
+    .falling-leaf:nth-child(20) { left: 12%; animation-duration: 9s; animation-delay: 5.2s; }
+    .glow-autumn {
+      text-shadow: 0 0 20px rgba(255, 140, 0, 0.6), 0 0 30px rgba(218, 165, 32, 0.4);
+    }
+    .pulse {
+      animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+    }
+    @keyframes pulse {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.6; }
+    }
+    #tutorial-container {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      background: linear-gradient(to top, rgba(44, 24, 16, 0.95), transparent);
+      border-top: 2px solid #FF8C00;
+      z-index: 999;
+      padding: 12px 0;
+      text-align: center;
+    }
+    #tutorial-btn {
+      display: inline-block;
+      max-width: 300px;
+      width: 80%;
+      background: linear-gradient(135deg, #FF8C00, #DAA520);
+      color: #2C1810;
+      font-weight: 600;
+      padding: 10px 20px;
+      border-radius: 8px;
+      text-decoration: none;
+      transition: all 0.3s;
+      box-shadow: 0 4px 15px rgba(255, 140, 0, 0.3);
+    }
+    #tutorial-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(255, 140, 0, 0.5);
+    }
+  </style>
+</head>
+<body class="min-h-screen text-autumn-light relative overflow-x-hidden" style="background: linear-gradient(135deg, #1a0f0a 0%, #2C1810 50%, #3d2418 100%); padding-bottom: 100px;">
+  
+  <!-- Falling Leaves Background -->
+  <div class="fixed inset-0 pointer-events-none z-0 overflow-hidden">
+    <div class="falling-leaf">🍂</div>
+    <div class="falling-leaf">🍁</div>
+    <div class="falling-leaf">🍂</div>
+    <div class="falling-leaf">🍁</div>
+    <div class="falling-leaf">🍂</div>
+    <div class="falling-leaf">🍁</div>
+    <div class="falling-leaf">🍂</div>
+    <div class="falling-leaf">🍁</div>
+    <div class="falling-leaf">🍂</div>
+    <div class="falling-leaf">🍁</div>
+    <div class="falling-leaf">🍂</div>
+    <div class="falling-leaf">🍁</div>
+    <div class="falling-leaf">🍂</div>
+    <div class="falling-leaf">🍁</div>
+    <div class="falling-leaf">🍂</div>
+    <div class="falling-leaf">🍁</div>
+    <div class="falling-leaf">🍂</div>
+    <div class="falling-leaf">🍁</div>
+    <div class="falling-leaf">🍂</div>
+    <div class="falling-leaf">🍁</div>
+  </div>
+
+  <header class="border-b-2 border-autumn-accent/40 sticky top-0 z-50 backdrop-blur-xl shadow-2xl" style="background: linear-gradient(to bottom, rgba(44, 24, 16, 0.95), rgba(44, 24, 16, 0.85));">
+    <div class="container mx-auto px-4 py-5">
+      <div class="flex items-center justify-between">
+        <div class="flex items-center space-x-4">
+          <div class="relative">
+            <div class="p-3 rounded-xl bg-gradient-to-br from-autumn-accent to-autumn-gold shadow-lg">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 461.001 461.001" class="w-7 h-7 fill-current text-autumn-dark">
+                <path d="M365.257 67.393H95.744C42.866 67.393 0 110.259 0 163.137v134.728c0 52.878 42.866 95.744 95.744 95.744h269.513c52.878 0 95.744-42.866 95.744-95.744V163.137c0-52.878-42.866-95.744-95.744-95.744zm-64.751 169.663-126.06 60.123c-3.635 1.74-6.641-.442-6.641-4.834V168.454c0-4.392 3.007-6.574 6.641-4.834l126.06 63.881c3.636 1.74 3.636 4.505 0 6.385z"/>
+              </svg>
+            </div>
+          </div>
+          <div>
+            <h1 class="text-3xl font-bold glow-autumn flex items-center gap-2">
+              🍂 GhostTube V4 
+            </h1>
+            <p class="text-sm text-autumn-accent font-medium animate-pulse">Harvest Your Media Anonymously</p>
+          </div>
+        </div>
+        <div class="flex items-center space-x-6">
+          <div class="text-right">
+            <div id="tor-status" class="flex items-center justify-end space-x-2 mb-1">
+              <span id="status-text" class="text-sm text-autumn-gold font-medium">Connection:</span>
+              <div id="status-dot" class="w-3 h-3 rounded-full bg-autumn-accent pulse border-2 border-autumn-gold/50 shadow-lg shadow-autumn-accent/50"></div>
+            </div>
+            <p id="ip-display" class="text-xs font-mono text-autumn-light bg-autumn-dark/80 px-3 py-1 rounded-lg border border-autumn-accent/30">IP: Loading...</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+  <main class="container mx-auto px-4 py-8">
+    <div id="error-box" class="hidden bg-spooky-primary/20 border border-spooky-primary/60 rounded-lg p-4 mb-6 flex items-center gap-3">
+      <i data-feather="alert-circle" class="text-spooky-primary flex-shrink-0"></i>
+      <p id="error-text" class="text-spooky-primary flex-grow"></p>
+      <button onclick="document.getElementById('error-box').classList.add('hidden')" class="text-spooky-primary text-xl">&times;</button>
+    </div>
+    <div class="flex border-b border-spooky-accent/30 mb-8">
+      <button id="tab-search" onclick="switchTab('search')" class="px-6 py-3 flex items-center space-x-2 border-b-2 border-spooky-accent text-spooky-accent font-medium relative group">
+        <i data-feather="search" class="w-4 h-4"></i>
+        <span>Search & Download</span>
+        <div class="absolute bottom-0 left-0 right-0 h-1 bg-spooky-accent opacity-0 group-hover:opacity-30 transition-opacity"></div>
+      </button>
+      <button id="tab-jobs" onclick="switchTab('jobs')" class="px-6 py-3 flex items-center space-x-2 border-b-2 border-transparent text-spooky-primary/80 hover:text-spooky-accent transition-colors font-medium relative group">
+        <i data-feather="list" class="w-4 h-4"></i>
+        <span>Active Jobs</span>
+        <div class="absolute bottom-0 left-0 right-0 h-1 bg-spooky-accent opacity-0 group-hover:opacity-30 transition-opacity"></div>
+      </button>
+    </div>
+    <div id="tab-content-search">
+      <div class="backdrop-blur-xl bg-gradient-to-br from-autumn-primary/30 to-autumn-secondary/40 rounded-2xl p-8 mb-6 border-2 border-autumn-accent/50 shadow-2xl hover:shadow-autumn-accent/30 transition-all">
+        <h3 class="text-xl font-bold mb-5 flex items-center text-autumn-light">
+          <i data-feather="link" class="w-6 h-6 mr-3 text-autumn-accent"></i>
+          Single URL Download
+        </h3>
+        <div class="mb-5">
+          <label class="block text-sm font-bold text-autumn-gold mb-3">YouTube URL</label>
+          <input id="url-input" type="text" class="w-full bg-autumn-dark/90 border-2 border-autumn-accent/50 rounded-xl px-5 py-4 text-autumn-light focus:outline-none focus:ring-4 focus:ring-autumn-gold/50 focus:border-autumn-gold transition-all placeholder:text-autumn-primary/60 font-medium" placeholder="https://www.youtube.com/watch?v=..." onkeypress="if(event.key==='Enter') handleUrlDownload()">
+        </div>
+        <button id="url-btn" onclick="handleUrlDownload()" class="w-full bg-gradient-to-r from-autumn-accent to-autumn-gold hover:from-autumn-gold hover:to-autumn-accent text-autumn-dark font-bold rounded-xl py-4 px-6 flex items-center justify-center space-x-3 transition-all hover:shadow-2xl hover:shadow-autumn-accent/40 hover:scale-105 active:scale-95">
+          <i data-feather="download" class="w-6 h-6"></i>
+          <span id="url-btn-text">Download Now</span>
+        </button>
+      </div>
+
+      <div class="backdrop-blur-xl bg-gradient-to-br from-autumn-forest/20 to-autumn-secondary/30 rounded-2xl p-8 mb-8 border-2 border-autumn-gold/40 shadow-2xl">
+        <h3 class="text-xl font-bold mb-5 flex items-center text-autumn-light">
+          <i data-feather="search" class="w-6 h-6 mr-3 text-autumn-gold"></i>
+          Search & Download
+        </h3>
+        <div class="mb-5">
+          <label class="block text-sm font-bold text-autumn-gold mb-3">Search Type</label>
+          <select id="search-type" class="w-full bg-autumn-dark/90 border-2 border-autumn-gold/50 rounded-xl px-5 py-4 text-autumn-light focus:outline-none focus:ring-4 focus:ring-autumn-accent/50 focus:border-autumn-accent mb-4 font-medium">
+            <option value="broad">🌾 Broad Search (More diverse results)</option>
+            <option value="precise">🎯 Precise Search (Exact matches)</option>
+            <option value="playlist">📋 Playlist URL (Extract all videos)</option>
+            <option value="channel">📺 Channel URL (Extract channel videos)</option>
+          </select>
+        </div>
+        <div class="mb-5">
+          <label class="block text-sm font-bold text-autumn-gold mb-3">Search Query / URL</label>
+          <input id="search-input" type="text" class="w-full bg-autumn-dark/90 border-2 border-autumn-gold/50 rounded-xl px-5 py-4 text-autumn-light focus:outline-none focus:ring-4 focus:ring-autumn-accent/50 focus:border-autumn-accent font-medium placeholder:text-autumn-primary/60" placeholder="e.g., 'harvest music' or playlist/channel URL" onkeypress="if(event.key==='Enter') handleSearch()">
+        </div>
+        <button id="search-btn" onclick="handleSearch()" class="w-full bg-gradient-to-r from-autumn-forest to-autumn-accent hover:from-autumn-accent hover:to-autumn-forest text-white font-bold rounded-xl py-4 px-6 flex items-center justify-center space-x-3 transition-all hover:shadow-2xl hover:shadow-autumn-forest/40">
+          <i data-feather="search" class="w-6 h-6"></i>
+          <span id="search-btn-text">Search YouTube</span>
+        </button>
+      </div>
+      <div id="search-results" class="hidden backdrop-blur-sm bg-black/40 rounded-xl p-6 border border-spooky-accent/40 shadow-lg">
+        <div class="flex items-center justify-between mb-4">
+          <h2 class="text-xl font-semibold">
+            Found <span id="result-count" class="text-spooky-accent">0</span> Videos
+          </h2>
+          <button onclick="toggleSelectAll()" class="text-sm text-spooky-primary hover:text-spooky-accent underline">
+            <span id="select-all-text">Select All</span>
+          </button>
+        </div>
+        <div id="video-list" class="space-y-2 max-h-[400px] overflow-y-auto pr-2 mb-6"></div>
+        <div id="download-options" class="bg-gradient-to-br from-spooky-accent/15 to-spooky-secondary/15 backdrop-blur-sm rounded-xl p-6 border border-spooky-accent/30 hidden">
+          <h3 class="text-lg font-semibold mb-4 flex items-center">
+            <i data-feather="settings" class="w-5 h-5 mr-2"></i>
+            Download Options
+          </h3>
+          <div class="grid grid-cols-2 gap-4 mb-4">
+            <label class="flex items-center space-x-3 cursor-pointer">
+              <input id="opt-audio" type="checkbox" checked class="w-5 h-5 rounded border-spooky-accent/50 bg-spooky-dark/80 text-spooky-accent focus:ring-spooky-accent" onchange="updateDownloadOptions()">
+              <span class="text-sm text-spooky-accent">Audio</span>
+            </label>
+            <label class="flex items-center space-x-3 cursor-pointer">
+              <input id="opt-video" type="checkbox" class="w-5 h-5 rounded border-spooky-accent/50 bg-spooky-dark/80 text-spooky-accent focus:ring-spooky-accent" onchange="updateDownloadOptions()">
+              <span class="text-sm text-spooky-accent">Video</span>
+            </label>
+            <label class="flex items-center space-x-3 cursor-pointer">
+              <input id="opt-transcripts" type="checkbox" class="w-5 h-5 rounded border-spooky-accent/50 bg-spooky-dark/80 text-spooky-accent focus:ring-spooky-accent" onchange="updateDownloadOptions()">
+              <span class="text-sm text-spooky-accent">Transcripts</span>
+            </label>
+          </div>
+          <div id="format-container" class="mb-4">
+            <label class="block text-sm font-medium text-spooky-accent mb-2">Audio Format</label>
+            <select id="audio-format" class="w-full bg-spooky-dark/80 border border-spooky-accent/40 rounded-lg px-4 py-3 text-white focus:outline-none focus:ring-2 focus:ring-spooky-accent/50 focus:border-spooky-accent/70">
+              <option value="mp3">MP3</option>
+              <option value="aac">AAC</option>
+              <option value="flac">FLAC</option>
+              <option value="wav">WAV</option>
+              <option value="ogg">OGG</option>
+              <option value="opus">OPUS</option>
+              <option value="m4a">M4A</option>
+            </select>
+          </div>
+          <div class="mb-6">
+            <div class="flex justify-between items-center mb-2">
+              <label class="text-sm font-medium text-spooky-accent">Concurrent Downloads</label>
+              <span id="concurrent-value" class="font-semibold text-spooky-accent">3</span>
+            </div>
+            <input id="concurrent-slider" type="range" min="1" max="10" value="3" class="w-full h-2 bg-spooky-dark/80 rounded-lg appearance-none cursor-pointer [&::-webkit-slider-thumb]:appearance-none [&::-webkit-slider-thumb]:h-4 [&::-webkit-slider-thumb]:w-4 [&::-webkit-slider-thumb]:rounded-full [&::-webkit-slider-thumb]:bg-spooky-accent" oninput="document.getElementById('concurrent-value').textContent = this.value">
+            <p class="text-xs text-spooky-primary/80 mt-1">More = faster but higher CPU usage</p>
+          </div>
+          <button id="download-btn" onclick="handleDownload()" class="w-full bg-gradient-to-r from-spooky-primary to-spooky-accent hover:from-spooky-primary/90 hover:to-spooky-accent/90 text-white font-medium rounded-lg py-3 px-6 flex items-center justify-center space-x-2 transition-all hover:shadow-lg hover:shadow-spooky-primary/20">
+            <i data-feather="download" class="w-5 h-5"></i>
+            <span id="download-btn-text">Download Videos</span>
+          </button>
+        </div>
+      </div>
+    </div>
+    <div id="tab-content-jobs" class="hidden backdrop-blur-sm bg-black/40 rounded-xl p-6 border border-spooky-accent/40 shadow-lg">
+      <div id="jobs-list" class="space-y-3"></div>
+      <div id="job-detail" class="bg-gradient-to-br from-spooky-accent/15 to-spooky-secondary/15 backdrop-blur-sm rounded-xl p-6 border border-spooky-accent/30 mt-6 hidden"></div>
+    </div>
+  </main>
+
+  <script>
+    feather.replace();
+    const API_BASE = '/api';
+    let selectedVideos = new Set();
+    let videoTitles = {};
+    let jobs = {};
+    let selectedJobId = null;
+    let pollInterval = null;
+
+    document.addEventListener('DOMContentLoaded', () => {
+      updateStatus();
+      setInterval(updateStatus, 30000);
+    });
+
+    async function updateStatus() {
+      try {
+        const response = await fetch(`${API_BASE}/status`);
+        const data = await response.json();
+        const statusDot = document.getElementById('status-dot');
+        const statusText = document.getElementById('status-text');
+        const ipDisplay = document.getElementById('ip-display');
+        
+        statusDot.classList.remove('bg-red-500');
+        statusDot.classList.add('bg-spooky-accent', 'pulse');
+        statusText.textContent = 'Connected';
+        statusText.classList.remove('text-red-400');
+        statusText.classList.add('text-spooky-accent');
+        ipDisplay.textContent = `IP: ${data.current_ip}`;
+      } catch (e) {
+        const statusDot = document.getElementById('status-dot');
+        const statusText = document.getElementById('status-text');
+        statusDot.classList.remove('bg-spooky-accent', 'pulse');
+        statusDot.classList.add('bg-red-500', 'pulse');
+        statusText.textContent = 'Disconnected';
+        statusText.classList.remove('text-spooky-accent');
+        statusText.classList.add('text-red-400');
+        showError('Failed to connect to backend');
+      }
+    }
+
+    async function rotateIP() {
+      showError('IP rotation not available in this version');
+    }
+
+    function switchTab(tab) {
+      document.getElementById('tab-search').classList.remove('border-spooky-accent', 'text-spooky-accent');
+      document.getElementById('tab-search').classList.add('border-transparent', 'text-spooky-primary/80');
+      document.getElementById('tab-jobs').classList.remove('border-spooky-accent', 'text-spooky-accent');
+      document.getElementById('tab-jobs').classList.add('border-transparent', 'text-spooky-primary/80');
+      document.getElementById('tab-content-search').classList.add('hidden');
+      document.getElementById('tab-content-jobs').classList.add('hidden');
+      if (tab === 'search') {
+        document.getElementById('tab-search').classList.add('border-spooky-accent', 'text-spooky-accent');
+        document.getElementById('tab-search').classList.remove('border-transparent', 'text-spooky-primary/80');
+        document.getElementById('tab-content-search').classList.remove('hidden');
+        if (pollInterval) {
+          clearInterval(pollInterval);
+          pollInterval = null;
+        }
+      } else {
+        document.getElementById('tab-jobs').classList.add('border-spooky-accent', 'text-spooky-accent');
+        document.getElementById('tab-jobs').classList.remove('border-transparent', 'text-spooky-primary/80');
+        document.getElementById('tab-content-jobs').classList.remove('hidden');
+        refreshJobsList();
+        if (!pollInterval) {
+          pollInterval = setInterval(() => {
+            if (selectedJobId) updateJobDetail(selectedJobId);
+            refreshJobsList();
+          }, 2000);
+        }
+      }
+      feather.replace();
+    }
+
+    async function handleUrlDownload() {
+      const url = document.getElementById('url-input').value.trim();
+      if (!url) {
+        showError('Enter a YouTube URL');
+        return;
+      }
+      if (!url.includes('youtube.com') && !url.includes('youtu.be')) {
+        showError('Invalid YouTube URL');
+        return;
+      }
+      const btn = document.getElementById('url-btn');
+      btn.disabled = true;
+      btn.innerHTML = '<i data-feather="loader" class="w-5 h-5 animate-spin"></i><span>Downloading...</span>';
+      feather.replace();
+      try {
+        const response = await fetch(`${API_BASE}/download`, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            query: url,
+            audio: true,
+            video: false,
+            transcripts: false,
+            format: 'mp3',
+            max_results: 1,
+            concurrent_downloads: 1,
+            search_type: 'direct',
+            urls: [url]
+          })
+        });
+        if (!response.ok) throw new Error(`HTTP ${response.status}`);
+        const data = await response.json();
+        jobs[data.job_id] = data;
+        selectedJobId = data.job_id;
+        document.getElementById('url-input').value = '';
+        switchTab('jobs');
+        showError('Download started!', true);
+      } catch (e) {
+        showError(`Download failed: ${e.message}`);
+      } finally {
+        btn.disabled = false;
+        btn.innerHTML = '<i data-feather="download" class="w-5 h-5"></i><span>Download Now</span>';
+        feather.replace();
+      }
+    }
+
+    async function handleSearch() {
+      const query = document.getElementById('search-input').value.trim();
+      const searchType = document.getElementById('search-type').value;
+      
+      if (!query) {
+        showError('Enter a search query or URL');
+        return;
+      }
+      
+      const btn = document.getElementById('search-btn');
+      btn.disabled = true;
+      btn.innerHTML = '<i data-feather="loader" class="w-5 h-5 animate-spin"></i><span>Searching...</span>';
+      feather.replace();
+      try {
+        const response = await fetch(`${API_BASE}/search`, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ 
+            query, 
+            max_results: 50, 
+            search_type: searchType 
+          })
+        });
+        if (!response.ok) throw new Error(`HTTP ${response.status}`);
+        const data = await response.json();
+        selectedVideos.clear();
+        videoTitles = data.titles || {};
+        displaySearchResults(data.results, data.titles);
+      } catch (e) {
+        showError(`Search failed: ${e.message}`);
+      } finally {
+        btn.disabled = false;
+        btn.innerHTML = '<i data-feather="search" class="w-5 h-5"></i><span>Search YouTube</span>';
+        feather.replace();
+      }
+    }
+
+    function displaySearchResults(results, titles) {
+      const container = document.getElementById('search-results');
+      const list = document.getElementById('video-list');
+      const count = document.getElementById('result-count');
+      count.textContent = results.length;
+      list.innerHTML = '';
+      results.forEach((url) => {
+        const item = document.createElement('label');
+        item.className = 'flex items-center space-x-3 bg-spooky-dark/50 hover:bg-spooky-dark/70 border border-spooky-accent/30 rounded-lg p-3 cursor-pointer transition-colors';
+        const checkbox = document.createElement('input');
+        checkbox.type = 'checkbox';
+        checkbox.className = 'w-5 h-5 rounded border-spooky-accent/50 bg-spooky-dark/80 text-spooky-accent focus:ring-spooky-accent cursor-pointer';
+        checkbox.dataset.url = url;
+        checkbox.onchange = () => toggleVideo(url);
+        const textDiv = document.createElement('div');
+        textDiv.className = 'flex-1 min-w-0';
+        const title = document.createElement('p');
+        title.className = 'text-sm font-medium text-spooky-accent truncate';
+        title.textContent = titles[url] || 'Loading title...';
+        const urlText = document.createElement('p');
+        urlText.className = 'text-xs text-spooky-primary/80 truncate';
+        urlText.textContent = url;
+        textDiv.appendChild(title);
+        textDiv.appendChild(urlText);
+        item.appendChild(checkbox);
+        item.appendChild(textDiv);
+        list.appendChild(item);
+      });
+      container.classList.remove('hidden');
+      document.getElementById('download-options').classList.add('hidden');
+      feather.replace();
+    }
+
+    function toggleVideo(url) {
+      if (selectedVideos.has(url)) {
+        selectedVideos.delete(url);
+      } else {
+        selectedVideos.add(url);
+      }
+      updateDownloadOptions();
+    }
+
+    function toggleSelectAll() {
+      const checkboxes = Array.from(document.querySelectorAll('#video-list input[type="checkbox"]'));
+      const allChecked = checkboxes.every(cb => cb.checked);
+      checkboxes.forEach(cb => {
+        cb.checked = !allChecked;
+        const url = cb.dataset.url;
+        if (!allChecked) {
+          selectedVideos.add(url);
+        } else {
+          selectedVideos.delete(url);
+        }
+      });
+      updateDownloadOptions();
+      document.getElementById('select-all-text').textContent = allChecked ? 'Select All' : 'Deselect All';
+    }
+
+    function updateDownloadOptions() {
+      const options = document.getElementById('download-options');
+      const formatContainer = document.getElementById('format-container');
+      if (selectedVideos.size > 0) {
+        options.classList.remove('hidden');
+        formatContainer.classList.toggle('hidden', !document.getElementById('opt-audio').checked);
+        document.getElementById('download-btn-text').textContent = `Download ${selectedVideos.size} Video${selectedVideos.size !== 1 ? 's' : ''}`;
+      } else {
+        options.classList.add('hidden');
+      }
+      feather.replace();
+    }
+
+    async function handleDownload() {
+      const query = document.getElementById('search-input').value.trim();
+      const searchType = document.getElementById('search-type').value;
+      const audio = document.getElementById('opt-audio').checked;
+      const video = document.getElementById('opt-video').checked;
+      const transcripts = document.getElementById('opt-transcripts').checked;
+      if (!audio && !video && !transcripts) {
+        showError('Select at least one option: audio, video, or transcripts');
+        return;
+      }
+      const format = document.getElementById('audio-format').value;
+      const concurrent = parseInt(document.getElementById('concurrent-slider').value);
+      const urls = Array.from(selectedVideos);
+      const btn = document.getElementById('download-btn');
+      btn.disabled = true;
+      btn.innerHTML = '<i data-feather="loader" class="w-5 h-5 animate-spin"></i><span>Starting Download...</span>';
+      feather.replace();
+      try {
+        const response = await fetch(`${API_BASE}/download`, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            query,
+            audio,
+            video,
+            transcripts,
+            format,
+            max_results: urls.length,
+            concurrent_downloads: concurrent,
+            search_type: 'direct',
+            urls
+          })
+        });
+        if (!response.ok) throw new Error(`HTTP ${response.status}`);
+        const data = await response.json();
+        jobs[data.job_id] = data;
+        selectedJobId = data.job_id;
+        switchTab('jobs');
+        document.getElementById('search-results').classList.add('hidden');
+        document.getElementById('search-input').value = '';
+        selectedVideos.clear();
+        showError(`Download queued: Job ${data.job_id.slice(-8)}`, true);
+      } catch (e) {
+        showError(e.message);
+      } finally {
+        btn.disabled = false;
+        btn.innerHTML = '<i data-feather="download" class="w-5 h-5"></i><span>Download Videos</span>';
+        feather.replace();
+        updateDownloadOptions();
+      }
+    }
+
+    function showError(msg, isSuccess = false) {
+      const box = document.getElementById('error-box');
+      const text = document.getElementById('error-text');
+      const icon = box.querySelector('i');
+      text.textContent = msg;
+      if (isSuccess) {
+        box.classList.remove('bg-spooky-primary/20', 'border-spooky-primary/60');
+        box.classList.add('bg-spooky-accent/20', 'border-spooky-accent/60');
+        text.classList.remove('text-spooky-primary');
+        text.classList.add('text-spooky-accent');
+        icon.classList.remove('text-spooky-primary');
+        icon.classList.add('text-spooky-accent');
+      } else {
+        box.classList.remove('bg-spooky-accent/20', 'border-spooky-accent/60');
+        box.classList.add('bg-spooky-primary/20', 'border-spooky-primary/60');
+        text.classList.remove('text-spooky-accent');
+        text.classList.add('text-spooky-primary');
+        icon.classList.remove('text-spooky-accent');
+        icon.classList.add('text-spooky-primary');
+      }
+      box.classList.remove('hidden');
+      setTimeout(() => box.classList.add('hidden'), 5000);
+    }
+
+    async function fetchJobProgress(id) {
+      try {
+        const response = await fetch(`${API_BASE}/progress/${id}`);
+        const data = await response.json();
+        if (jobs[id]) {
+          jobs[id] = { ...jobs[id], ...data };
+        }
+        return data;
+      } catch (e) {
+        console.error(`Progress fetch failed for ${id}:`, e);
+        return null;
+      }
+    }
+
+    async function refreshJobsList() {
+      const list = document.getElementById('jobs-list');
+      const promises = Object.keys(jobs).map(id => fetchJobProgress(id));
+      await Promise.allSettled(promises);
+      list.innerHTML = '';
+      if (Object.keys(jobs).length === 0) {
+        list.innerHTML = '<p class="text-center text-spooky-primary/70 py-8">No jobs yet—start a download! <i data-feather="ghost" class="inline w-4 h-4"></i></p>';
+        feather.replace();
+        return;
+      }
+      Object.keys(jobs).sort((a, b) => (jobs[b]?.start_time || 0) - (jobs[a]?.start_time || 0)).forEach(id => {
+        const job = jobs[id];
+        const card = document.createElement('div');
+        card.className = `job-card ${selectedJobId === id ? 'bg-spooky-accent/10 border-spooky-accent/50' : 'bg-spooky-dark/50 border-spooky-accent/30'} border rounded-lg p-4 cursor-pointer transition-colors hover:border-spooky-accent/50`;
+        card.onclick = (e) => selectJob(id, e);
+        const header = document.createElement('div');
+        header.className = 'flex justify-between items-center mb-3';
+        const title = document.createElement('h3');
+        title.className = 'text-base font-semibold text-white truncate flex-1 min-w-0';
+        title.textContent = job.query?.substring(0, 50) || 'Unknown Query';
+        const statusBadge = document.createElement('span');
+        statusBadge.className = 'text-xs font-medium px-2 py-1 rounded-full';
+        let statusText = job.status || 'queued';
+        let statusColor = 'bg-spooky-secondary/30 text-spooky-primary';
+        switch (statusText) {
+          case 'complete':
+            statusText = 'Complete';
+            statusColor = 'bg-spooky-accent/30 text-spooky-accent';
+            break;
+          case 'failed':
+            statusText = 'Failed';
+            statusColor = 'bg-red-500/20 text-red-400';
+            break;
+          case 'downloading':
+            statusText = 'Downloading';
+            statusColor = 'bg-orange-500/20 text-orange-400';
+            break;
+        }
+        statusBadge.textContent = statusText;
+        statusBadge.className += ` ${statusColor}`;
+        header.appendChild(title);
+        header.appendChild(statusBadge);
+        const progressBar = document.createElement('div');
+        progressBar.className = 'w-full bg-spooky-dark/80 rounded-full h-2 mb-2';
+        const fill = document.createElement('div');
+        fill.className = 'bg-gradient-to-r from-spooky-accent to-spooky-secondary h-2 rounded-full';
+        fill.style.width = `${job.progress || 0}%`;
+        progressBar.appendChild(fill);
+        const message = document.createElement('p');
+        message.className = 'text-sm text-spooky-primary/80 truncate';
+        message.textContent = job.message || 'Initializing...';
+        card.appendChild(header);
+        card.appendChild(progressBar);
+        card.appendChild(message);
+        list.appendChild(card);
+      });
+      if (selectedJobId && jobs[selectedJobId]) {
+        updateJobDetail(selectedJobId);
+      }
+    }
+
+    function selectJob(id, e) {
+      selectedJobId = id;
+      updateJobDetail(id);
+      document.querySelectorAll('.job-card').forEach(card => {
+        card.classList.remove('bg-spooky-accent/10', 'border-spooky-accent/50');
+        card.classList.add('bg-spooky-dark/50', 'border-spooky-accent/30');
+      });
+      e.currentTarget.classList.remove('bg-spooky-dark/50', 'border-spooky-accent/30');
+      e.currentTarget.classList.add('bg-spooky-accent/10', 'border-spooky-accent/50');
+    }
+
+    async function updateJobDetail(id) {
+      await fetchJobProgress(id);
+      const job = jobs[id];
+      if (!job) return;
+      const detail = document.getElementById('job-detail');
+      detail.classList.remove('hidden');
+      detail.innerHTML = '';
+      const header = document.createElement('div');
+      header.className = 'flex justify-between items-center mb-6';
+      const title = document.createElement('h2');
+      title.className = 'text-xl font-semibold text-white truncate flex-1 min-w-0';
+      title.textContent = `Job: ${job.query?.substring(0, 60) || 'N/A'}${job.query?.length > 60 ? '...' : ''}`;
+      const elapsed = document.createElement('span');
+      elapsed.className = 'text-sm text-spooky-primary/80 whitespace-nowrap ml-4';
+      const mins = Math.floor((job.elapsed || 0) / 60);
+      const secs = Math.floor((job.elapsed || 0) % 60);
+      elapsed.textContent = `Elapsed: ${mins}m ${secs}s`;
+      header.appendChild(title);
+      header.appendChild(elapsed);
+      detail.appendChild(header);
+      const statsGrid = document.createElement('div');
+      statsGrid.className = 'grid grid-cols-2 md:grid-cols-4 gap-3 mb-6';
+      const stats = [
+        { label: 'Total', value: job.total_videos || 0, color: 'text-white' },
+        { label: 'Completed', value: job.completed_videos || 0, color: 'text-spooky-accent' },
+        { label: 'Failed', value: job.failed_videos || 0, color: 'text-red-400' },
+        { label: 'Progress', value: `${job.progress || 0}%`, color: 'text-spooky-accent' }
+      ];
+      stats.forEach(stat => {
+        const box = document.createElement('div');
+        box.className = 'bg-spooky-dark/50 border border-spooky-accent/30 rounded-lg p-4 text-center';
+        const val = document.createElement('p');
+        val.className = `text-2xl font-bold ${stat.color} mb-1`;
+        val.textContent = stat.value;
+        const lab = document.createElement('p');
+        lab.className = 'text-xs text-spooky-primary/80';
+        lab.textContent = stat.label;
+        box.appendChild(val);
+        box.appendChild(lab);
+        statsGrid.appendChild(box);
+      });
+      detail.appendChild(statsGrid);
+      const msg = document.createElement('p');
+      msg.className = 'text-lg font-medium text-spooky-accent mb-6';
+      msg.textContent = job.message || 'No updates yet';
+      detail.appendChild(msg);
+      if (job.status === 'complete' && job.results && job.results.length > 0) {
+        const table = document.createElement('div');
+        table.className = 'bg-spooky-dark/50 border border-spooky-accent/30 rounded-lg overflow-hidden';
+        const headerRow = document.createElement('div');
+        headerRow.className = 'grid grid-cols-6 gap-4 bg-spooky-accent/10 p-3 border-b border-spooky-accent/30';
+        ['Title', 'Status', 'Size (MB)', 'Duration', 'Retries', 'IP'].forEach(text => {
+          const cell = document.createElement('div');
+          cell.className = 'text-sm font-medium text-spooky-accent truncate';
+          cell.textContent = text;
+          headerRow.appendChild(cell);
+        });
+        table.appendChild(headerRow);
+        job.results.forEach(result => {
+          const row = document.createElement('div');
+          row.className = 'grid grid-cols-6 gap-4 p-3 border-b border-spooky-accent/10 last:border-0 hover:bg-spooky-dark/70 transition-colors';
+          const titleCell = document.createElement('div');
+          titleCell.className = 'text-sm text-white truncate';
+          titleCell.textContent = result.title || 'N/A';
+          row.appendChild(titleCell);
+          const statusCell = document.createElement('div');
+          statusCell.className = `text-sm font-medium ${result.status === 'success' ? 'text-spooky-accent' : 'text-red-400'}`;
+          statusCell.textContent = result.status;
+          row.appendChild(statusCell);
+          const sizeCell = document.createElement('div');
+          sizeCell.className = 'text-sm text-spooky-primary/80';
+          sizeCell.textContent = (result.size_mb || 0).toFixed(1);
+          row.appendChild(sizeCell);
+          const durCell = document.createElement('div');
+          durCell.className = 'text-sm text-spooky-primary/80';
+          durCell.textContent = Math.floor(result.duration || 0);
+          row.appendChild(durCell);
+          const retCell = document.createElement('div');
+          retCell.className = 'text-sm text-spooky-primary/80';
+          retCell.textContent = result.retries || 0;
+          row.appendChild(retCell);
+          const ipCell = document.createElement('div');
+          ipCell.className = 'text-sm font-mono text-spooky-primary/80 truncate';
+          ipCell.textContent = result.ip || 'N/A';
+          row.appendChild(ipCell);
+          table.appendChild(row);
+        });
+        detail.appendChild(table);
+      } else if (job.status === 'failed') {
+        const failMsg = document.createElement('div');
+        failMsg.className = 'bg-red-500/10 border border-red-500/30 rounded-lg p-4 text-red-400 flex items-center space-x-3';
+        failMsg.innerHTML = `<i data-feather="alert-triangle" class="w-5 h-5 flex-shrink-0"></i><span>Job failed: ${job.message || 'Unknown error'}</span>`;
+        detail.appendChild(failMsg);
+        feather.replace();
+      }
+    }
+  </script>
+  <div id="tutorial-container">
+    <a href="ghosttube-tutorial.html" id="tutorial-btn">📚 GhostTube V4 Tutorial</a>
+  </div>
+</body>
+</html>
