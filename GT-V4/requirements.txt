@@ -1,8 +1,8 @@
 fastapi==0.104.1
 uvicorn[standard]==0.24.0
 pydantic==2.5.0
-requests==2.31.0
-yt-dlp==2023.11.16
+requests==2.32.4
+yt-dlp==2024.7.7
 
 # Alternative minimal versions if above fails:
 # fastapi>=0.100.0
